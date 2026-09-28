@@ -1,0 +1,178 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "Living and Non-Living Things", "description": "Characteristics of living things, classification.", "estimatedMinutes": 25},
+            {"name": "Classification of Living Things", "description": "Five kingdoms and binomial nomenclature.", "estimatedMinutes": 30},
+            {"name": "Cells and its Organelles", "description": "Plant vs animal cells, organelles and functions.", "estimatedMinutes": 30},
+            {"name": "Cell Division", "description": "Mitosis and meiosis.", "estimatedMinutes": 30},
+            {"name": "Tissues and Levels of Organization", "description": "Cell → tissue → organ → system → organism.", "estimatedMinutes": 20},
+            {"name": "Nutrition", "description": "Classes of food and balanced diet.", "estimatedMinutes": 30},
+            {"name": "Food Tests", "description": "Tests for starch, protein, reducing sugar and fats.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "Modes of Nutrition", "description": "Autotrophs, heterotrophs and parasites.", "estimatedMinutes": 25},
+            {"name": "Photosynthesis", "description": "Process, requirements and importance.", "estimatedMinutes": 30},
+            {"name": "Respiration", "description": "Aerobic and anaerobic respiration.", "estimatedMinutes": 30},
+            {"name": "Transport in Plants", "description": "Xylem, phloem, transpiration and translocation.", "estimatedMinutes": 30},
+            {"name": "Transport in Animals", "description": "Blood, blood vessels and the heart.", "estimatedMinutes": 30},
+            {"name": "Circulatory System", "description": "Double circulation and blood groups.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "Support and Movement in Plants", "description": "Turgidity and support tissues.", "estimatedMinutes": 25},
+            {"name": "Support and Movement in Animals", "description": "Skeleton, muscles and types of joints.", "estimatedMinutes": 30},
+            {"name": "Excretion", "description": "Excretory organs and the kidney.", "estimatedMinutes": 30},
+            {"name": "Irritability and Coordination", "description": "Nervous system and hormones.", "estimatedMinutes": 30},
+            {"name": "Reproduction in Organisms", "description": "Asexual and sexual reproduction.", "estimatedMinutes": 30},
+            {"name": "Growth and Development", "description": "Stages and factors affecting growth.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {
+              "name": "Genetics",
+              "description": "Heredity, Mendel's laws, dominant and recessive traits.",
+              "estimatedMinutes": 35,
+              "lesson": {
+                "title": "Introduction to Genetics",
+                "introduction": "Genetics is the study of how characteristics are passed from parents to offspring.",
+                "explanation": "Each parent passes one allele (version of a gene) for a trait. If the alleles are different, the dominant allele shows in the offspring while the recessive allele is hidden.\n\nExample: In pea plants, tall (T) is dominant over short (t). A cross TT × tt gives all Tt offspring — all tall. A cross Tt × Tt gives TT, Tt, Tt, tt in a 3:1 tall:short ratio.\n\nMendel called the physical appearance the phenotype and the allele pair the genotype (TT, Tt or tt). The Punnett square is a simple grid used to work out offspring genotypes and ratios.",
+                "keyPoints": [
+                  "Genes come in alleles; dominant vs recessive.",
+                  "Genotype = allele pair; phenotype = appearance.",
+                  "Mendel's ratios: monohybrid cross gives 3:1.",
+                  "Punnett squares predict outcomes."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "In a cross between two heterozygous tall plants (Tt × Tt), what is the phenotypic ratio of tall to short?", "difficulty": 3, "marks": 2,
+                  "options": [{"key": "A", "text": "1:1"}, {"key": "B", "text": "3:1"}, {"key": "C", "text": "1:3"}, {"key": "D", "text": "9:3:3:1"}],
+                  "correctKey": "B",
+                  "explanation": "Tt × Tt gives TT, Tt, Tt, tt — three tall to one short (3:1)."
+                },
+                {
+                  "type": "MCQ", "prompt": "The physical appearance of an organism is its", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "genotype"}, {"key": "B", "text": "phenotype"}, {"key": "C", "text": "gene"}, {"key": "D", "text": "chromosome"}],
+                  "correctKey": "B",
+                  "explanation": "Phenotype = observable appearance; genotype = allele combination."
+                },
+                {
+                  "type": "MCQ", "prompt": "If T is tall (dominant) and t is short (recessive), which genotype is short?", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "TT"}, {"key": "B", "text": "Tt"}, {"key": "C", "text": "tt"}, {"key": "D", "text": "Tt and TT"}],
+                  "correctKey": "C",
+                  "explanation": "Short only appears when both alleles are recessive (tt)."
+                }
+              ]
+            },
+            {"name": "Heredity and Variations", "description": "Sources of variation and genetic basis.", "estimatedMinutes": 30},
+            {"name": "Cell Biology (Revision)", "description": "Revision of cell structure and functions.", "estimatedMinutes": 25},
+            {"name": "Sensitivity in Organisms", "description": "Nervous and hormonal coordination.", "estimatedMinutes": 30},
+            {"name": "Coordination and Response", "description": "Reflex actions and endocrine system.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "Ecology", "description": "Ecosystems, populations and communities.", "estimatedMinutes": 30},
+            {"name": "Energy Flow in Ecosystems", "description": "Food chains, food webs and pyramids.", "estimatedMinutes": 30},
+            {"name": "Nutrient Cycling", "description": "Carbon and nitrogen cycles.", "estimatedMinutes": 25},
+            {"name": "Conservation of Natural Resources", "description": "Wildlife, forest and water conservation.", "estimatedMinutes": 25},
+            {"name": "Evolution", "description": "Evidence and theories of evolution.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "Micro-organisms and Health", "description": "Bacteria, viruses, diseases and control.", "estimatedMinutes": 30},
+            {"name": "The Immune System", "description": "Immunity, vaccines and antibodies.", "estimatedMinutes": 25},
+            {"name": "Effects of Drugs and Substances", "description": "Drug abuse and its effects.", "estimatedMinutes": 25},
+            {"name": "Human Origins and Behaviour", "description": "Human evolution and cultural behaviour.", "estimatedMinutes": 20},
+            {"name": "Biotechnology", "description": "Genetic engineering and applications.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "The Skeleton and Joints (Revision)", "description": "Revision of support and movement.", "estimatedMinutes": 25},
+            {"name": "The Nervous System (Revision)", "description": "Revision of coordination.", "estimatedMinutes": 25},
+            {"name": "Sense Organs", "description": "Skin, eye and ear.", "estimatedMinutes": 30},
+            {"name": "The Kidney and Homeostasis (Revision)", "description": "Revision of excretion.", "estimatedMinutes": 25},
+            {"name": "Reproduction (Revision)", "description": "Revision of plant and animal reproduction.", "estimatedMinutes": 30},
+            {"name": "WAEC/JAMB Practice", "description": "Mixed biology questions.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Biology",
+          "code": "BIO",
+          "topics": [
+            {"name": "Ecology (Revision)", "description": "Revision of ecosystems and cycles.", "estimatedMinutes": 25},
+            {"name": "Evolution (Revision)", "description": "Revision of evolution evidence.", "estimatedMinutes": 20},
+            {"name": "Health and Hygiene (Revision)", "description": "Revision of micro-organisms and immunity.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    }
+  ]
+}

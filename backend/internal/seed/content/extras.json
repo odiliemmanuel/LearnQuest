@@ -1,0 +1,341 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Inequalities", "description": "Linear and quadratic inequalities.", "estimatedMinutes": 30},
+            {"name": "Arithmetic and Geometric Progressions", "description": "Series and their sums.", "estimatedMinutes": 30},
+            {"name": "Polynomials", "description": "Operations and remainder theorem.", "estimatedMinutes": 35},
+            {"name": "Partial Fractions", "description": "Decomposition of rational functions.", "estimatedMinutes": 30},
+            {"name": "Binomial Expansion", "description": "Expansion for positive integer powers.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "Basic Concepts of Government", "description": "Power, authority, legitimacy, sovereignty.", "estimatedMinutes": 30},
+            {"name": "Forms of Government", "description": "Democracy, monarchy, dictatorship.", "estimatedMinutes": 30},
+            {"name": "Types of Government", "description": "Unitary, federal and confederal systems.", "estimatedMinutes": 30},
+            {"name": "The Constitution", "description": "Types and sources of constitutions.", "estimatedMinutes": 30},
+            {"name": "Principles of Democratic Government", "description": "Rule of law, separation of powers.", "estimatedMinutes": 25},
+            {"name": "Citizenship", "description": "Ways of acquiring citizenship.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Geography",
+          "code": "GEO",
+          "topics": [
+            {"name": "The Earth and the Solar System", "description": "Planet Earth, movements and their effects.", "estimatedMinutes": 30},
+            {"name": "Map Reading and Interpretation", "description": "Scales, contours and symbols.", "estimatedMinutes": 35},
+            {"name": "Weather and Climate", "description": "Elements of weather and instruments.", "estimatedMinutes": 30},
+            {"name": "The Earth's Structure", "description": "Rocks and their types.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Literature-in-English",
+          "code": "LIT",
+          "topics": [
+            {"name": "Introduction to Literature", "description": "Types, genres and functions of literature.", "estimatedMinutes": 25},
+            {"name": "Prose: Elements of Fiction", "description": "Characters, plot, setting, theme.", "estimatedMinutes": 30},
+            {"name": "Drama: Elements of Drama", "description": "Acts, scenes, dialogue, stagecraft.", "estimatedMinutes": 30},
+            {"name": "Poetry: Basic Devices", "description": "Rhyme, rhythm and poetic devices.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Civic Education",
+          "code": "CIV",
+          "topics": [
+            {"name": "Citizenship Education", "description": "Meaning and types of citizenship.", "estimatedMinutes": 20},
+            {"name": "Values and Moral Uprightness", "description": "Types and importance of values.", "estimatedMinutes": 20},
+            {"name": "Constitutional Democracy", "description": "Features and benefits.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "History of Computers", "description": "Generations and evolution of computers.", "estimatedMinutes": 20},
+            {"name": "Computer Hardware", "description": "Input, output and storage devices.", "estimatedMinutes": 25},
+            {"name": "Computer Software", "description": "System and application software.", "estimatedMinutes": 25},
+            {"name": "Number Systems in Computing", "description": "Binary, octal, decimal, hexadecimal.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Sequences", "description": "Recurrence relations and special sequences.", "estimatedMinutes": 25},
+            {"name": "Coordinate Geometry", "description": "Lines, circles and their equations.", "estimatedMinutes": 35},
+            {"name": "Trigonometry", "description": "Identities, equations and graphs.", "estimatedMinutes": 35},
+            {"name": "Logic and Reasoning", "description": "Statements, truth tables, valid arguments.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "Political Parties", "description": "Functions and party systems.", "estimatedMinutes": 30},
+            {"name": "Pressure Groups", "description": "Types and functions.", "estimatedMinutes": 25},
+            {"name": "Public Opinion and the Media", "description": "Formation and role of opinion.", "estimatedMinutes": 25},
+            {"name": "Electoral Systems", "description": "Types of electoral systems.", "estimatedMinutes": 30},
+            {"name": "Elections and Voting", "description": "Process and conduct of elections.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Geography",
+          "code": "GEO",
+          "topics": [
+            {"name": "Climate of Africa", "description": "Climatic regions of Africa.", "estimatedMinutes": 30},
+            {"name": "Vegetation of Africa", "description": "Vegetation zones and factors.", "estimatedMinutes": 30},
+            {"name": "Population", "description": "Distribution, density and growth.", "estimatedMinutes": 30},
+            {"name": "Settlement Geography", "description": "Types and patterns of settlements.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Literature-in-English",
+          "code": "LIT",
+          "topics": [
+            {"name": "Prose Study: The Novel", "description": "Studying a set novel.", "estimatedMinutes": 30},
+            {"name": "Drama Study: A Play", "description": "Studying a set play.", "estimatedMinutes": 30},
+            {"name": "Poetry Appreciation", "description": "Reading set poems critically.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Civic Education",
+          "code": "CIV",
+          "topics": [
+            {"name": "Human Rights", "description": "Fundamental human rights.", "estimatedMinutes": 25},
+            {"name": "Rule of Law", "description": "Meaning and importance.", "estimatedMinutes": 25},
+            {"name": "Democracy and National Development", "description": "Link between democracy and development.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Computer Applications", "description": "Word processing, spreadsheets.", "estimatedMinutes": 30},
+            {"name": "The Internet", "description": "Browsing, email and search.", "estimatedMinutes": 25},
+            {"name": "Computer Ethics", "description": "Ethical issues in computing.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Differentiation", "description": "Derivatives of polynomials.", "estimatedMinutes": 35},
+            {"name": "Applications of Differentiation", "description": "Gradients, velocity and turning points.", "estimatedMinutes": 30},
+            {"name": "Integration", "description": "Basic integration and areas.", "estimatedMinutes": 35}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "The Civil Service", "description": "Structure and functions.", "estimatedMinutes": 25},
+            {"name": "Public Corporations", "description": "Purposes and problems.", "estimatedMinutes": 25},
+            {"name": "Local Government", "description": "Structure and functions.", "estimatedMinutes": 25},
+            {"name": "The Judiciary", "description": "Functions and independence.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Geography",
+          "code": "GEO",
+          "topics": [
+            {"name": "Agriculture in Africa", "description": "Types and importance.", "estimatedMinutes": 25},
+            {"name": "Natural Resources", "description": "Types and conservation.", "estimatedMinutes": 25},
+            {"name": "Industries in Africa", "description": "Types and location factors.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Introduction to Programming", "description": "Algorithms and flowcharts.", "estimatedMinutes": 30},
+            {"name": "BASIC Programming", "description": "Simple programs in BASIC.", "estimatedMinutes": 35}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Quadratic Functions and Equations", "description": "Natures of roots and graphs.", "estimatedMinutes": 30},
+            {"name": "Exponential and Logarithmic Functions", "description": "Laws and applications.", "estimatedMinutes": 30},
+            {"name": "Mensuration and Trigonometry (Review)", "description": "Review of mensuration.", "estimatedMinutes": 30},
+            {"name": "Permutations and Combinations", "description": "Counting principles.", "estimatedMinutes": 35}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "Constitutional Development in Nigeria", "description": "Settlements and constitutions 1914–1963.", "estimatedMinutes": 35},
+            {"name": "The Nigerian Federation", "description": "Formation and problems of federalism.", "estimatedMinutes": 30},
+            {"name": "The Executive", "description": "Powers and functions of the executive.", "estimatedMinutes": 30},
+            {"name": "The Legislature", "description": "Structure and functions.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Geography",
+          "code": "GEO",
+          "topics": [
+            {"name": "Nigeria: Location and Boundaries", "description": "Position, size and borders.", "estimatedMinutes": 20},
+            {"name": "Relief and Drainage of Nigeria", "description": "Landforms and river systems.", "estimatedMinutes": 30},
+            {"name": "Climate of Nigeria", "description": "Rainfall and temperature patterns.", "estimatedMinutes": 30},
+            {"name": "Vegetation of Nigeria", "description": "Vegetation belts.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "High-Level Languages and Translators", "description": "Compilers, interpreters, assemblers.", "estimatedMinutes": 25},
+            {"name": "Databases", "description": "Data, databases and management systems.", "estimatedMinutes": 30},
+            {"name": "Computer Viruses and Security", "description": "Types and prevention.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Probability", "description": "Combined events and Bayes' rule.", "estimatedMinutes": 30},
+            {"name": "Matrices and Determinants", "description": "Operations and applications.", "estimatedMinutes": 35},
+            {"name": "Complex Numbers", "description": "Forms and operations.", "estimatedMinutes": 35},
+            {"name": "Vectors", "description": "Vector algebra in 2D and 3D.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "Political Parties in Nigeria", "description": "Parties since independence.", "estimatedMinutes": 35},
+            {"name": "The Military in Nigerian Politics", "description": "Coups and military governments.", "estimatedMinutes": 35},
+            {"name": "Federalism in Nigeria", "description": "Evolution and fiscal issues.", "estimatedMinutes": 30},
+            {"name": "Foreign Policy of Nigeria", "description": "Objectives and Africa as centre-piece.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Geography",
+          "code": "GEO",
+          "topics": [
+            {"name": "Populations of Nigeria", "description": "Census, growth and policies.", "estimatedMinutes": 25},
+            {"name": "Agriculture in Nigeria", "description": "Types and problems.", "estimatedMinutes": 30},
+            {"name": "Mineral Resources in Nigeria", "description": "Petroleum and solid minerals.", "estimatedMinutes": 25},
+            {"name": "Manufacturing Industries", "description": "Industries and location factors.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Mechanics: Kinematics", "description": "Motion in a straight line.", "estimatedMinutes": 30},
+            {"name": "Mechanics: Dynamics", "description": "Forces and Newton's laws.", "estimatedMinutes": 35},
+            {"name": "Statics of Rigid Bodies", "description": "Moments and equilibrium.", "estimatedMinutes": 35},
+            {"name": "Projectiles", "description": "Projectile motion modelling.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "Comparative Federalism", "description": "Federation of Nigeria vs USA.", "estimatedMinutes": 30},
+            {"name": "International Organisations", "description": "UN, AU, ECOWAS, Commonwealth.", "estimatedMinutes": 30},
+            {"name": "Public Service Reforms", "description": "Reforms and their impact.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Geography",
+          "code": "GEO",
+          "topics": [
+            {"name": "Transportation in Nigeria", "description": "Modes and problems.", "estimatedMinutes": 25},
+            {"name": "Trade and Commerce", "description": "Internal and external trade.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Calculus: Differentiation", "description": "Techniques and applications.", "estimatedMinutes": 35},
+            {"name": "Calculus: Integration", "description": "Techniques and applications.", "estimatedMinutes": 35},
+            {"name": "Differential Equations", "description": "Simple first-order equations.", "estimatedMinutes": 30},
+            {"name": "Algebraic Functions and Graphs", "description": "Curve sketching.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "Revision: Concepts of Government", "description": "Revision of core concepts.", "estimatedMinutes": 25},
+            {"name": "Revision: Nigerian Government", "description": "Revision of Nigerian systems.", "estimatedMinutes": 30},
+            {"name": "Revision: International Relations", "description": "Revision of international bodies.", "estimatedMinutes": 25},
+            {"name": "WAEC/JAMB Preparation", "description": "Mixed revision questions.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Further Mathematics",
+          "code": "FMTH",
+          "topics": [
+            {"name": "Vector Geometry (Revision)", "description": "Revision of vectors.", "estimatedMinutes": 25},
+            {"name": "Statistics (Revision)", "description": "Revision of statistical tools.", "estimatedMinutes": 25},
+            {"name": "WAEC/JAMB Preparation", "description": "Mixed revision questions.", "estimatedMinutes": 40}
+          ]
+        },
+        {
+          "name": "Government",
+          "code": "GOV",
+          "topics": [
+            {"name": "WAEC/JAMB Practice I", "description": "Objective practice.", "estimatedMinutes": 40},
+            {"name": "WAEC/JAMB Practice II", "description": "Theory practice.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    }
+  ]
+}

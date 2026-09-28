@@ -1,0 +1,355 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {
+              "name": "Introduction to Physics",
+              "description": "The study of matter, energy and their interactions; measurement in science.",
+              "estimatedMinutes": 20,
+              "lesson": {
+                "title": "What is Physics?",
+                "introduction": "Physics is the branch of science that studies matter, energy, and how they interact.",
+                "explanation": "Physics explains why objects move, why the sky is blue, how electricity works, and how machines function. It uses measurement, experiment and mathematics.\n\nLength, mass and time are the three fundamental quantities. The unit of length is the metre (m), mass is the kilogram (kg), and time is the second (s). Physics depends on accurate measurement. A measurement includes a number and a unit.",
+                "keyPoints": [
+                  "Physics studies matter and energy.",
+                  "Fundamental quantities: length, mass, time.",
+                  "Base units: metre (m), kilogram (kg), second (s).",
+                  "Every measurement has a value and a unit."
+                ],
+                "formulas": [
+                  {"name": "Density", "expression": "Density = Mass / Volume", "meaning": "How much mass is packed into a volume"}
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "Which of the following is a fundamental quantity in physics?", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "Speed"}, {"key": "B", "text": "Length"}, {"key": "C", "text": "Density"}, {"key": "D", "text": "Force"}],
+                  "correctKey": "B",
+                  "explanation": "Length, mass and time are fundamental quantities. Speed, density and force are derived quantities."
+                },
+                {
+                  "type": "MCQ", "prompt": "The SI base unit of mass is the", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "newton"}, {"key": "B", "text": "gram"}, {"key": "C", "text": "kilogram"}, {"key": "D", "text": "pascal"}],
+                  "correctKey": "C",
+                  "explanation": "Mass is measured in kilograms (kg)."
+                },
+                {
+                  "type": "MCQ", "prompt": "1 kilometre (km) is equal to how many metres?", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "10 m"}, {"key": "B", "text": "100 m"}, {"key": "C", "text": "1000 m"}, {"key": "D", "text": "1 000 000 m"}],
+                  "correctKey": "C",
+                  "explanation": "1 km = 1000 m."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "A block has a mass of 6 kg and a volume of 0.003 m³. Calculate its density in kg/m³.", "difficulty": 2, "marks": 2,
+                  "correctValue": "2000", "correctUnit": "kg/m3", "tolerance": 0.5,
+                  "expectedWorking": "Density = mass / volume\nDensity = 6 / 0.003\nDensity = 2000 kg/m3",
+                  "explanation": "Density = 6 / 0.003 = 2000 kg/m³. Dividing by a small decimal gives a large density."
+                }
+              ]
+            },
+            {"name": "Measurement and Units", "description": "SI units, prefixes, accuracy, precision and errors.", "estimatedMinutes": 20},
+            {"name": "Motion in a Straight Line", "description": "Distance, displacement, speed, velocity, acceleration and graphs.", "estimatedMinutes": 30},
+            {"name": "Relative Motion", "description": "Relative velocity and applications.", "estimatedMinutes": 15},
+            {"name": "Mass, Weight and Gravity", "description": "Difference between mass and weight; gravitational field.", "estimatedMinutes": 20},
+            {"name": "Density and Relative Density", "description": "Density, relative density, floating and sinking.", "estimatedMinutes": 25},
+            {"name": "Friction", "description": "Types of friction, advantages and disadvantages.", "estimatedMinutes": 20},
+            {"name": "Vector and Scalar Quantities", "description": "Vectors vs scalars, addition of vectors, resolution.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "Work, Energy and Power", "description": "Work done, forms of energy, power and simple machines.", "estimatedMinutes": 30},
+            {"name": "Heat Energy and Temperature", "description": "Heat vs temperature, thermometers, expansion.", "estimatedMinutes": 20},
+            {"name": "Linear Expansivity", "description": "Expansion of solids and the expansivity formula.", "estimatedMinutes": 20},
+            {"name": "Thermal Capacity and Latent Heat", "description": "Specific heat capacity, latent heat and change of state.", "estimatedMinutes": 25},
+            {"name": "Gas Laws", "description": "Boyle's, Charles' and pressure laws; ideal gas equation.", "estimatedMinutes": 30},
+            {"name": "Elasticity of Substances", "description": "Hooke's law, elastic limit and deformation.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "Sound Waves", "description": "Production of sound, pitch, loudness and quality.", "estimatedMinutes": 25},
+            {"name": "Light Energy and Reflection", "description": "Rectilinear propagation and reflection of light.", "estimatedMinutes": 25},
+            {"name": "Refraction of Light", "description": "Snell's law, refractive index, prisms and critical angle.", "estimatedMinutes": 30},
+            {"name": "Lenses and Optical Instruments", "description": "Convex and concave lenses, image formation, magnifying glass.", "estimatedMinutes": 30},
+            {"name": "Dispersion of Light", "description": "Splitting of white light, colour.", "estimatedMinutes": 15},
+            {"name": "Waves and Restoring Forces", "description": "Wave types: transverse and longitudinal.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {
+              "name": "Waves",
+              "description": "Properties of waves, types of waves, and the wave equation.",
+              "estimatedMinutes": 30,
+              "lesson": {
+                "title": "Introduction to Waves",
+                "introduction": "A wave is a disturbance that transfers energy from one place to another without permanently transferring matter.",
+                "explanation": "When you drop a stone into a calm pond, ripples spread outward. The water itself does not travel across the pond; instead, energy is passed from one water particle to the next. This is a wave.\n\nWaves can be grouped in two ways:\n\n1. By how they move: A transverse wave oscillates perpendicular to the direction of travel (light, water waves, waves on a string). A longitudinal wave oscillates parallel to the direction of travel (sound).\n2. By whether they need a medium: Mechanical waves (sound, water, seismic) need a material medium. Electromagnetic waves (light, radio) can travel through a vacuum.\n\nKey quantities:\n- Wavelength (λ): the distance between two identical points on consecutive waves, measured in metres.\n- Frequency (f): the number of complete waves passing a point per second, measured in hertz (Hz).\n- Speed (v): how fast the wave travels, in metres per second (m/s).\n\nThe wave equation relates them: v = f × λ.\n\nAmplitude is the maximum displacement of a particle from its rest position. It tells us the energy of the wave: a larger amplitude carries more energy.",
+                "keyPoints": [
+                  "A wave transfers energy, not matter.",
+                  "Transverse waves: vibration is perpendicular to travel (light).",
+                  "Longitudinal waves: vibration is parallel to travel (sound).",
+                  "v = f × λ, where v is speed, f is frequency, λ is wavelength.",
+                  "Frequency is measured in hertz (Hz).",
+                  "Amplitude shows the energy carried by the wave."
+                ],
+                "formulas": [
+                  {"name": "Wave equation", "expression": "v = f × λ", "meaning": "wave speed = frequency × wavelength"},
+                  {"name": "Period", "expression": "T = 1 / f", "meaning": "time for one complete wave"}
+                ],
+                "examples": [
+                  {
+                    "title": "Calculating wavelength",
+                    "problem": "A wave has a frequency of 50 Hz and travels at 300 m/s. Find its wavelength.",
+                    "solution": "v = fλ so λ = v/f = 300/50 = 6 m"
+                  }
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "What is a wave?", "difficulty": 1, "marks": 1,
+                  "options": [
+                    {"key": "A", "text": "A transfer of matter from one place to another"},
+                    {"key": "B", "text": "A transfer of energy from one place to another"},
+                    {"key": "C", "text": "The creation of matter"},
+                    {"key": "D", "text": "The destruction of energy"}
+                  ],
+                  "correctKey": "B",
+                  "explanation": "A wave transfers energy from one location to another without a permanent transfer of matter. The particles only vibrate about their mean positions."
+                },
+                {
+                  "type": "MCQ", "prompt": "Which of the following pairs correctly matches a wave with its type?", "difficulty": 2, "marks": 1,
+                  "options": [
+                    {"key": "A", "text": "Sound — transverse"},
+                    {"key": "B", "text": "Light — longitudinal"},
+                    {"key": "C", "text": "Sound — longitudinal"},
+                    {"key": "D", "text": "Water wave — longitudinal"}
+                  ],
+                  "correctKey": "C",
+                  "explanation": "Sound is a longitudinal wave: particles vibrate parallel to the direction the wave travels. Light is transverse."
+                },
+                {
+                  "type": "MCQ", "prompt": "The unit of frequency is the", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "metre"}, {"key": "B", "text": "hertz"}, {"key": "C", "text": "joule"}, {"key": "D", "text": "second"}],
+                  "correctKey": "B",
+                  "explanation": "Frequency is the number of waves per second, measured in hertz (Hz)."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "A wave has a frequency of 50 Hz and travels at 300 m/s. Calculate its wavelength.", "difficulty": 2, "marks": 2,
+                  "correctValue": "6", "correctUnit": "m", "tolerance": 0.05,
+                  "expectedWorking": "v = f × λ\nλ = v / f\nλ = 300 / 50\nλ = 6 m",
+                  "explanation": "Rearrange v = fλ for λ: λ = v/f = 300/50 = 6 m. The values were substituted correctly."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "A radio wave has a wavelength of 3 m and a speed of 3 × 10^8 m/s. Find its frequency.", "difficulty": 2, "marks": 2,
+                  "correctValue": "1e8", "correctUnit": "Hz", "tolerance": 0.001,
+                  "expectedWorking": "f = v / λ\nf = (3e8) / 3\nf = 1e8 Hz",
+                  "explanation": "f = v/λ = 3×10^8 / 3 = 1×10^8 Hz (100 MHz)."
+                },
+                {
+                  "type": "MCQ", "prompt": "If the period of a wave is 0.02 s, its frequency is", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "5 Hz"}, {"key": "B", "text": "20 Hz"}, {"key": "C", "text": "50 Hz"}, {"key": "D", "text": "500 Hz"}],
+                  "correctKey": "C",
+                  "explanation": "f = 1/T = 1/0.02 = 50 Hz."
+                },
+                {
+                  "type": "MCQ", "prompt": "Mechanical waves require a medium to travel. Which wave is NOT mechanical?", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "Sound wave"}, {"key": "B", "text": "Water wave"}, {"key": "C", "text": "Light wave"}, {"key": "D", "text": "Seismic wave"}],
+                  "correctKey": "C",
+                  "explanation": "Light is an electromagnetic wave and needs no medium; it travels through a vacuum."
+                }
+              ]
+            },
+            {
+              "name": "Sound Waves",
+              "description": "Production and properties of sound, echoes and applications.",
+              "estimatedMinutes": 25,
+              "lesson": {
+                "title": "Sound as a Longitudinal Wave",
+                "introduction": "Sound is produced by vibrating bodies and travels as a longitudinal mechanical wave.",
+                "explanation": "Strike a tuning fork and it vibrates. These vibrations push and pull the air particles, creating compressions (particles squeezed together) and rarefactions (particles spread apart). The disturbance travels outward at roughly 330–340 m/s in air.\n\nSound cannot travel through a vacuum because it needs particles to carry the disturbance. It travels fastest in solids, slower in liquids, and slowest in gases.\n\nThe pitch of a sound depends on its frequency: high frequency means high pitch. Loudness depends on the amplitude: bigger amplitude means louder sound. The quality (timbre) distinguishes two sounds of the same pitch and loudness, like a piano and a guitar playing the same note.\n\nAn echo is a repeated sound caused by reflection of sound waves off a hard surface. Paramedics use ultrasound to see inside the body; sailors use echo-sounding to measure depth.",
+                "keyPoints": [
+                  "Sound is a longitudinal, mechanical wave.",
+                  "It cannot travel through a vacuum.",
+                  "Speed of sound in air is about 340 m/s.",
+                  "Pitch depends on frequency.",
+                  "Loudness depends on amplitude.",
+                  "Echo = reflected sound."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "Sound travels fastest in", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "Air"}, {"key": "B", "text": "Water"}, {"key": "C", "text": "Steel"}, {"key": "D", "text": "A vacuum"}],
+                  "correctKey": "C",
+                  "explanation": "Sound travels fastest in solids because particles are tightly packed and transfer vibrations quickly. It cannot travel in a vacuum."
+                },
+                {
+                  "type": "MCQ", "prompt": "The pitch of a sound depends on its", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "frequency"}, {"key": "B", "text": "amplitude"}, {"key": "C", "text": "wavelength only"}, {"key": "D", "text": "speed"}],
+                  "correctKey": "A",
+                  "explanation": "Pitch depends on frequency — higher frequency gives higher pitch."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "A boy shouts near a cliff and hears the echo after 3 s. If the speed of sound is 340 m/s, how far away is the cliff?", "difficulty": 2, "marks": 2,
+                  "correctValue": "510", "correctUnit": "m", "tolerance": 0.5,
+                  "expectedWorking": "Total distance travelled by sound (to cliff and back) = v × t = 340 × 3 = 1020 m\nCliff distance = 1020 / 2 = 510 m",
+                  "explanation": "The sound goes to the cliff and returns, so the distance is half of (340 × 3) = 510 m."
+                },
+                {
+                  "type": "MCQ", "prompt": "Loudness of a sound increases when its ___ increases.", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "frequency"}, {"key": "B", "text": "amplitude"}, {"key": "C", "text": "velocity"}, {"key": "D", "text": "wavelength"}],
+                  "correctKey": "B",
+                  "explanation": "Loudness is related to the amplitude (energy) of the sound wave."
+                }
+              ]
+            },
+            {
+              "name": "Properties of Waves",
+              "description": "Reflection, refraction, diffraction and interference of waves.",
+              "estimatedMinutes": 25
+            },
+            {
+              "name": "Light Reflection and Mirrors",
+              "description": "Laws of reflection, plane mirrors, curved mirrors and images.",
+              "estimatedMinutes": 30
+            },
+            {
+              "name": "Current Electricity",
+              "description": "Electric current, potential difference, resistance and Ohm's law.",
+              "estimatedMinutes": 30
+            },
+            {
+              "name": "Resistors and Resistivity",
+              "description": "Series and parallel resistors, resistivity and conductors.",
+              "estimatedMinutes": 30
+            },
+            {
+              "name": "Electrical Instruments and Measurement",
+              "description": "Ammeters, voltmeters, potentiometer and meter bridge.",
+              "estimatedMinutes": 25
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "Heat Capacity and Specific Heat", "description": "Specific heat capacity and calorimetry.", "estimatedMinutes": 30},
+            {"name": "Latent Heat", "description": "Latent heat of fusion and vaporisation.", "estimatedMinutes": 25},
+            {"name": "Vapour and Humidity", "description": "Saturated vapour pressure, relative humidity.", "estimatedMinutes": 20},
+            {"name": "Boiling and Evaporation", "description": "Differences, factors, applications.", "estimatedMinutes": 20},
+            {"name": "Refraction of Light", "description": "Snell's law, refractive index and total internal reflection.", "estimatedMinutes": 30},
+            {"name": "Lenses", "description": "Convex/concave lenses and lens formula.", "estimatedMinutes": 30},
+            {"name": "Electric Cells and E.M.F.", "description": "Internal resistance, e.m.f. and terminal voltage.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "Magnetism", "description": "Properties of magnets, magnetic fields, domains.", "estimatedMinutes": 25},
+            {"name": "Electromagnetic Induction", "description": "Faraday's law, Lenz's law, generators.", "estimatedMinutes": 30},
+            {"name": "Transmission of Power", "description": "Transformers and power distribution.", "estimatedMinutes": 25},
+            {"name": "Modern Physics I", "description": "Electron emission, cathode rays, thermionic emission.", "estimatedMinutes": 25},
+            {"name": "Radioactivity", "description": "Types of radiation, half-life, nuclear equations.", "estimatedMinutes": 30},
+            {"name": "Energy Sources", "description": "Renewable and non-renewable energy sources.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "Projectile Motion", "description": "Trajectory of projectiles, range and time of flight.", "estimatedMinutes": 30},
+            {"name": "Simple Harmonic Motion", "description": "SHM definition, energy in SHM, pendulum and spring.", "estimatedMinutes": 30},
+            {"name": "Newton's Laws of Motion", "description": "First, second and third laws and momentum.", "estimatedMinutes": 30},
+            {"name": "Momentum and Collisions", "description": "Conservation of momentum, elastic and inelastic collisions.", "estimatedMinutes": 25},
+            {"name": "Work, Energy and Power (Revision)", "description": "Work-energy theorem, efficiency and machines.", "estimatedMinutes": 25},
+            {"name": "Gravitation and Satellites", "description": "Gravitational force, escape velocity, satellites.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "AC and DC Circuits", "description": "Alternating and direct current, r.m.s values.", "estimatedMinutes": 25},
+            {"name": "Capacitance", "description": "Capacitors, energy stored, series and parallel.", "estimatedMinutes": 30},
+            {"name": "Electromagnetic Waves", "description": "Properties and spectrum of electromagnetic waves.", "estimatedMinutes": 25},
+            {"name": "Optical Instruments", "description": "Microscope, telescope, camera and eye defects.", "estimatedMinutes": 25},
+            {"name": "Photoelectric Effect", "description": "Photon model and Einstein's equation.", "estimatedMinutes": 30},
+            {"name": "X-rays", "description": "Production, properties and uses of X-rays.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Physics",
+          "code": "PHY",
+          "topics": [
+            {"name": "WAEC/JAMB Mock I", "description": "Mixed objective questions across topics.", "estimatedMinutes": 40},
+            {"name": "WAEC/JAMB Mock II", "description": "Mixed theory and calculation questions.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,206 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {
+              "name": "Comprehension Skills",
+              "description": "Reading for understanding, main ideas and details.",
+              "estimatedMinutes": 30,
+              "lesson": {
+                "title": "Reading Comprehensively",
+                "introduction": "Comprehension means understanding what you read — both what is said and what is implied.",
+                "explanation": "To answer comprehension questions well: read the passage once to get the general idea, then read each question carefully and search the passage for the exact sentence that answers it.\n\nLook for the main idea of each paragraph — usually in the first sentence. Support your answers with words or phrases from the passage.\n\nVocabulary questions often test words in context: replace the word in the sentence and check the meaning still fits. Pay attention to grammar and tenses when quoting from the passage.",
+                "keyPoints": [
+                  "Read for the general idea first.",
+                  "Understand the question before searching.",
+                  "Quote or paraphrase accurately.",
+                  "Use context to guess unfamiliar words."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "Which of the following is the main idea of a paragraph?", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "Every exact detail in the paragraph"}, {"key": "B", "text": "The single most important point the author makes"}, {"key": "C", "text": "The longest sentence in the paragraph"}, {"key": "D", "text": "The writer's personal opinion only"}],
+                  "correctKey": "B",
+                  "explanation": "The main idea is the most important point, often found in the first sentence."
+                },
+                {
+                  "type": "MCQ", "prompt": "When a comprehension question asks for the meaning of a word 'in context', you should", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "Give the dictionary definition only"}, {"key": "B", "text": "Decide what it means in the sentence where it appears"}, {"key": "C", "text": "Skip the word"}, {"key": "D", "text": "Guess any meaning"}],
+                  "correctKey": "B",
+                  "explanation": "'In context' means working out the meaning from how the word is used in that sentence."
+                },
+                {
+                  "type": "MCQ", "prompt": "Which option best completes: 'Despite the rain, the pupils ___ to school.'", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "go"}, {"key": "B", "text": "went"}, {"key": "C", "text": "goes"}, {"key": "D", "text": "going"}],
+                  "correctKey": "B",
+                  "explanation": "The sentence is in the past tense and needs a past-tense verb: went."
+                }
+              ]
+            },
+            {"name": "Grammar: Parts of Speech", "description": "Nouns, verbs, adjectives, adverbs, pronouns.", "estimatedMinutes": 30},
+            {"name": "Effective Writing: The Paragraph", "description": "Topic sentences and paragraph development.", "estimatedMinutes": 25},
+            {"name": "Spelling and Diphthongs", "description": "Common spelling problems and sounds.", "estimatedMinutes": 25},
+            {"name": "Register and Vocabulary Building", "description": "Words in context across registers.", "estimatedMinutes": 25},
+            {"name": "Oral Skills: Vowels and Consonants", "description": "Correct articulation of sounds.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Grammar: Tenses and Aspects", "description": "Present, past, future and perfect aspects.", "estimatedMinutes": 30},
+            {"name": "Clauses and Sentences", "description": "Main and subordinate clauses, sentence types.", "estimatedMinutes": 30},
+            {"name": "Narrative and Descriptive Writing", "description": "Writing memorable narratives and descriptions.", "estimatedMinutes": 30},
+            {"name": "Summary Writing I", "description": "Identifying and paraphrasing key points.", "estimatedMinutes": 30},
+            {"name": "Oral Skills: Stress and Intonation", "description": "Word stress and tone patterns.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Letter Writing", "description": "Formal and informal letters and their features.", "estimatedMinutes": 30},
+            {"name": "Grammar: Concord", "description": "Subject-verb agreement rules.", "estimatedMinutes": 30},
+            {"name": "Argumentative Writing", "description": "Structuring arguments and counter-arguments.", "estimatedMinutes": 30},
+            {"name": "Figures of Speech", "description": "Metaphor, simile, personification and more.", "estimatedMinutes": 25},
+            {"name": "Expository Writing", "description": "Explaining ideas clearly and logically.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {
+              "name": "Comprehension: Answering Questions",
+              "description": "Techniques for answering comprehension questions.",
+              "estimatedMinutes": 30,
+              "lesson": {
+                "title": "Comprehension Techniques",
+                "introduction": "Good comprehension answers are precise, complete and in your own words.",
+                "explanation": "Follow these steps:\n1. Read the whole passage quickly to understand its message.\n2. Read each question and underline the key words.\n3. Find the part of the passage the question refers to.\n4. Answer in complete sentences, using your own words unless the question asks for a quotation.\n5. Check that your answer is not too long or too short.\n\nFor 'what does X mean' questions, give a definition that fits the context. For inferential questions, combine evidence from more than one part of the passage.",
+                "keyPoints": [
+                  "Underline key words in the question.",
+                  "Answer in full sentences.",
+                  "Use your own words where possible.",
+                  "Support inferences with evidence."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "An inferential comprehension question requires you to", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "copy one sentence from the passage"}, {"key": "B", "text": "reach a conclusion from evidence in the passage"}, {"key": "C", "text": "state your personal opinion"}, {"key": "D", "text": "recite the passage from memory"}],
+                  "correctKey": "B",
+                  "explanation": "Inference means drawing a conclusion that the writer suggests but does not state directly."
+                },
+                {
+                  "type": "MCQ", "prompt": "Which of these is the correct complete-sentence answer form?", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "'Because it rained.'"}, {"key": "B", "text": "'The match was postponed because it rained.'"}, {"key": "C", "text": "'Rained.'"}, {"key": "D", "text": "'It.'"}],
+                  "correctKey": "B",
+                  "explanation": "A full answer repeats the question's context to form a complete sentence."
+                }
+              ]
+            },
+            {"name": "Grammar: Clauses and Complex Sentences (II)", "description": "Complex and compound-complex sentences.", "estimatedMinutes": 30},
+            {"name": "Formal Letter Writing (Application)", "description": "Letters of application and CV summary.", "estimatedMinutes": 30},
+            {"name": "Idioms and Paraphrasing", "description": "Common idioms and rephrasing sentences.", "estimatedMinutes": 25},
+            {"name": "Oral Skills: Consonant Clusters", "description": "Articulating consonant clusters correctly.", "estimatedMinutes": 25},
+            {"name": "Vocabulary: Law and Politics", "description": "Register words for law and politics.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Grammar: Modal Auxiliaries", "description": "Can, may, must, will, shall and their uses.", "estimatedMinutes": 30},
+            {"name": "Summary Writing II", "description": "Summarising longer passages within word limits.", "estimatedMinutes": 30},
+            {"name": "Report Writing", "description": "Writing reports and eye-witness accounts.", "estimatedMinutes": 30},
+            {"name": "Active and Passive Voice", "description": "Changing between voices.", "estimatedMinutes": 30},
+            {"name": "Sequencing of Ideas", "description": "Ordering ideas in coherent paragraphs.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Grammar: Reported Speech", "description": "Direct to indirect speech.", "estimatedMinutes": 30},
+            {"name": "Article and Opinion Writing", "description": "Writing feature articles.", "estimatedMinutes": 30},
+            {"name": "Punctuation", "description": "Commas, semicolons, colons and quotation marks.", "estimatedMinutes": 25},
+            {"name": "Vocabulary: Science and Technology", "description": "Register of science terms.", "estimatedMinutes": 25},
+            {"name": "Poetry Appreciation", "description": "Reading and analysing simple poems.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Grammar: Structural Patterns", "description": "Patterns of sentences in English.", "estimatedMinutes": 30},
+            {"name": "Comprehension (Revision)", "description": "Advanced comprehension practice.", "estimatedMinutes": 30},
+            {"name": "Summary Writing (Revision)", "description": "Advanced summary practice.", "estimatedMinutes": 30},
+            {"name": "Essay Types (Revision)", "description": "Narrative, descriptive, argumentative, expository.", "estimatedMinutes": 35},
+            {"name": "Lexis and Structure", "description": "Vocabulary-in-context practice.", "estimatedMinutes": 30},
+            {"name": "Oral English (Revision)", "description": "Vowel and consonant practice.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Lexis and Structure (Intensive)", "description": "Intensive vocabulary practice.", "estimatedMinutes": 30},
+            {"name": "Comprehension (Intensive)", "description": "Intensive comprehension practice.", "estimatedMinutes": 30},
+            {"name": "WAEC/JAMB Practice I", "description": "Objective English practice.", "estimatedMinutes": 40},
+            {"name": "WAEC/JAMB Practice II", "description": "Essay and summary practice.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    }
+  ]
+}

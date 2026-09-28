@@ -1,0 +1,471 @@
+{
+  "curriculum": [
+    {
+      "class": "JSS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Whole Numbers", "description": "Counting, place value and rounding.", "estimatedMinutes": 25},
+            {"name": "Fractions I", "description": "Improper fractions and mixed numbers.", "estimatedMinutes": 30},
+            {"name": "Decimals", "description": "Decimal notation and operations.", "estimatedMinutes": 25},
+            {"name": "Binary Numbers", "description": "Introduction to base two.", "estimatedMinutes": 20},
+            {"name": "Basic Operations on Whole Numbers", "description": "Addition, subtraction, multiplication, division.", "estimatedMinutes": 30},
+            {"name": "Approximation", "description": "Rounding to significant figures.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Parts of Speech: The Noun", "description": "Types of nouns.", "estimatedMinutes": 25},
+            {"name": "Comprehension: Getting the Main Idea", "description": "Finding the main idea.", "estimatedMinutes": 25},
+            {"name": "Spelling and Sounds", "description": "Short and long vowels.", "estimatedMinutes": 20},
+            {"name": "Parts of Speech: The Verb", "description": "Action and linking verbs.", "estimatedMinutes": 25},
+            {"name": "Composition: Simple Sentences", "description": "Writing complete sentences.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Living and Non-Living Things", "description": "Differences and characteristics.", "estimatedMinutes": 25},
+            {"name": "Measurement of Physical Quantities", "description": "Length, mass, time.", "estimatedMinutes": 25},
+            {"name": "Human Reproduction", "description": "Reproductive systems.", "estimatedMinutes": 25},
+            {"name": "The Family as a Social Unit", "description": "Roles and relationships.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Social Studies",
+          "code": "SOC",
+          "topics": [
+            {"name": "Meaning of Social Studies", "description": "Scope and importance.", "estimatedMinutes": 20},
+            {"name": "Family and Socialisation", "description": "Types of families.", "estimatedMinutes": 20},
+            {"name": "Culture and Values", "description": "Meaning and elements of culture.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Civic Education",
+          "code": "CIV",
+          "topics": [
+            {"name": "Meaning of Civic Education", "description": "Why we study it.", "estimatedMinutes": 15},
+            {"name": "Citizenship Rights and Duties", "description": "Rights and obligations.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "History of the Computer", "description": "Early counting devices.", "estimatedMinutes": 15},
+            {"name": "Components of a Computer", "description": "Hardware and software.", "estimatedMinutes": 20},
+            {"name": "The Keyboard", "description": "Uses of the keyboard.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Fractions II", "description": "Operations with fractions.", "estimatedMinutes": 30},
+            {"name": "Percentages", "description": "Fraction-decimal-percentage conversions.", "estimatedMinutes": 25},
+            {"name": "Ratio", "description": "Sharing in a given ratio.", "estimatedMinutes": 25},
+            {"name": "Algebra: Simple Equations", "description": "Solving linear equations.", "estimatedMinutes": 25},
+            {"name": "Simple Angles", "description": "Angles and their properties.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Parts of Speech: Adjectives and Adverbs", "description": "Types and use.", "estimatedMinutes": 25},
+            {"name": "Tenses: Simple Present and Past", "description": "Forming and using tenses.", "estimatedMinutes": 20},
+            {"name": "Composition: Description", "description": "Describing people and places.", "estimatedMinutes": 25},
+            {"name": "Oral: Consonant Sounds", "description": "Articulating consonants.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Nutrition", "description": "Classes of food.", "estimatedMinutes": 25},
+            {"name": "Food Hygiene and Processing", "description": "Safe handling of food.", "estimatedMinutes": 20},
+            {"name": "States of Matter", "description": "Solid, liquid, gas.", "estimatedMinutes": 25},
+            {"name": "Force and Friction", "description": "Types of forces.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Social Studies",
+          "code": "SOC",
+          "topics": [
+            {"name": "Man and his Environment", "description": "Human-environment interaction.", "estimatedMinutes": 20},
+            {"name": "Drug Abuse", "description": "Meaning and effects.", "estimatedMinutes": 20},
+            {"name": "Safety Education", "description": "Road and home safety.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Parts of the Computer", "description": "System unit and peripherals.", "estimatedMinutes": 20},
+            {"name": "The Mouse and Other Devices", "description": "Pointing devices.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Basic Geometry: Shapes", "description": "Plane figures and their properties.", "estimatedMinutes": 25},
+            {"name": "Perimeter and Area", "description": "Simple mensuration.", "estimatedMinutes": 30},
+            {"name": "Symmetry", "description": "Lines and rotational symmetry.", "estimatedMinutes": 20},
+            {"name": "Statistics: Pictograms and Bar Charts", "description": "Representing data.", "estimatedMinutes": 25},
+            {"name": "Probability: Simple Ideas", "description": "Chance and outcomes.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Parts of Speech: Pronouns and Prepositions", "description": "Types and use.", "estimatedMinutes": 25},
+            {"name": "Consonant Clusters", "description": "Blends in words.", "estimatedMinutes": 20},
+            {"name": "Narrative Composition", "description": "Telling a story in writing.", "estimatedMinutes": 25},
+            {"name": "Punctuation", "description": "Capital letters and full stops.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Physical and Chemical Changes", "description": "Differences and examples.", "estimatedMinutes": 25},
+            {"name": "Energy and Conservation", "description": "Forms of energy.", "estimatedMinutes": 25},
+            {"name": "Water Supply and Treatment", "description": "Sources of water.", "estimatedMinutes": 20},
+            {"name": "Reproduction in Plants", "description": "Flowers and pollination.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Social Studies",
+          "code": "SOC",
+          "topics": [
+            {"name": "Social Issues in Nigeria", "description": "Problems and solutions.", "estimatedMinutes": 20},
+            {"name": "National Unity", "description": "Factors promoting unity.", "estimatedMinutes": 20},
+            {"name": "Population in Nigeria", "description": "Distribution and growth.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Word Processing Basics", "description": "Typing and saving documents.", "estimatedMinutes": 20},
+            {"name": "The Internet", "description": "Browsing the web.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Large and Small Numbers", "description": "Standard form.", "estimatedMinutes": 20},
+            {"name": "Indices", "description": "Laws of indices.", "estimatedMinutes": 25},
+            {"name": "Approximation and Estimation", "description": "Estimation techniques.", "estimatedMinutes": 20},
+            {"name": "Algebraic Expressions", "description": "Expanding brackets.", "estimatedMinutes": 25},
+            {"name": "Equations with Fractions", "description": "Solving fractional equations.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Paragraph Development", "description": "Topic sentences.", "estimatedMinutes": 25},
+            {"name": "Parts of Speech: Conjunctions", "description": "Joining words.", "estimatedMinutes": 20},
+            {"name": "Comprehension: Sequence of Events", "description": "Ordering events.", "estimatedMinutes": 25},
+            {"name": "Reading for Speed", "description": "Skimming and scanning.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Growth and Development", "description": "Stages of growth.", "estimatedMinutes": 20},
+            {"name": "Skeletal System", "description": "Bones and joints.", "estimatedMinutes": 25},
+            {"name": "Circulatory System", "description": "Blood and the heart.", "estimatedMinutes": 25},
+            {"name": "Excretory System", "description": "Organs of excretion.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Social Studies",
+          "code": "SOC",
+          "topics": [
+            {"name": "Population and Development", "description": "Relationship between them.", "estimatedMinutes": 20},
+            {"name": "HIV/AIDS Education", "description": "Prevention and care.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Computer Software", "description": "System and application software.", "estimatedMinutes": 20},
+            {"name": "Operating Systems", "description": "Functions of an OS.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Linear Inequalities", "description": "Solving inequalities.", "estimatedMinutes": 25},
+            {"name": "Simultaneous Equations", "description": "Elimination and substitution.", "estimatedMinutes": 30},
+            {"name": "Probability of Simple Events", "description": "Basic probability.", "estimatedMinutes": 25},
+            {"name": "Angles of Polygons", "description": "Interior and exterior angles.", "estimatedMinutes": 25},
+            {"name": "Construction of Triangles", "description": "Geometric construction.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Figures of Speech", "description": "Similes and metaphors.", "estimatedMinutes": 20},
+            {"name": "Letter Writing (Informal)", "description": "Friendly letters.", "estimatedMinutes": 25},
+            {"name": "Comprehension: Inference", "description": "Reading between lines.", "estimatedMinutes": 25},
+            {"name": "Tenses: Perfect Forms", "description": "Present and past perfect.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Reproduction in Humans", "description": "Reproductive systems.", "estimatedMinutes": 25},
+            {"name": "Reproduction in Plants", "description": "Pollination and fertilization.", "estimatedMinutes": 25},
+            {"name": "Electricity and Magnetism", "description": "Basic concepts.", "estimatedMinutes": 25},
+            {"name": "Heat Energy", "description": "Conduction, convection, radiation.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Social Studies",
+          "code": "SOC",
+          "topics": [
+            {"name": "Science and Technology", "description": "Effects on society.", "estimatedMinutes": 20},
+            {"name": "Trade and Commerce", "description": "Types of trade.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Word Processing", "description": "Formatting and printing.", "estimatedMinutes": 25},
+            {"name": "Spreadsheet Basics", "description": "Cells and formulas.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Statistics: Frequency Tables", "description": "Tally marks.", "estimatedMinutes": 25},
+            {"name": "Mean, Median and Mode", "description": "Measures of central tendency.", "estimatedMinutes": 30},
+            {"name": "Probability: Combined Events", "description": "Sample space.", "estimatedMinutes": 25},
+            {"name": "Pythagoras' Theorem", "description": "Triples and problems.", "estimatedMinutes": 30},
+            {"name": "Mensuration: Cylinders and Cones", "description": "Volume and surface area.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Direct and Reported Speech", "description": "Converting speech.", "estimatedMinutes": 25},
+            {"name": "Active and Passive Voice", "description": "Changing voice.", "estimatedMinutes": 25},
+            {"name": "Argumentative Composition", "description": "Structuring arguments.", "estimatedMinutes": 30},
+            {"name": "Poetry: Simple Devices", "description": "Rhyme and rhythm.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Reproduction in Organisms", "description": "Asexual and sexual.", "estimatedMinutes": 25},
+            {"name": "The Simple Machine", "description": "Levers and pulleys.", "estimatedMinutes": 25},
+            {"name": "Sound and Light Waves", "description": "Properties.", "estimatedMinutes": 25},
+            {"name": "Soil and Soil Conservation", "description": "Types of soil.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "The Internet and Email", "description": "Creating accounts.", "estimatedMinutes": 20},
+            {"name": "Computer Ethics", "description": "Correct use of computers.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Base and Numeration (Revision)", "description": "Review of number bases.", "estimatedMinutes": 20},
+            {"name": "Algebra: Factorization", "description": "Common factors.", "estimatedMinutes": 25},
+            {"name": "Quadratic Equations (Simple)", "description": "Basic solving.", "estimatedMinutes": 30},
+            {"name": "Simultaneous Linear Equations (Revision)", "description": "Review.", "estimatedMinutes": 25},
+            {"name": "Variation", "description": "Direct and inverse.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Comprehension: Summarising", "description": "Finding key points.", "estimatedMinutes": 25},
+            {"name": "Adverbial Clauses", "description": "Types and uses.", "estimatedMinutes": 25},
+            {"name": "Formal Letters (Introduction)", "description": "Features of formal letters.", "estimatedMinutes": 25},
+            {"name": "Consonant Sounds (Revision)", "description": "Articulation review.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Cells and Tissues", "description": "Structure and functions.", "estimatedMinutes": 25},
+            {"name": "Reproduction (Revision)", "description": "Review of reproduction.", "estimatedMinutes": 20},
+            {"name": "Human Development and Family Life", "description": "Puberty and adolescence.", "estimatedMinutes": 25},
+            {"name": "Coordination and Control", "description": "Nervous system.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Social Studies",
+          "code": "SOC",
+          "topics": [
+            {"name": "Agents of Socialisation", "description": "Family, school, peers.", "estimatedMinutes": 20},
+            {"name": "Housing and Family Life", "description": "Types of housing.", "estimatedMinutes": 20},
+            {"name": "Global Issues: HIV/AIDS", "description": "Global responses.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Computer Network", "description": "LAN and WAN.", "estimatedMinutes": 25},
+            {"name": "Introduction to Databases", "description": "Data and records.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Geometry: Circles and Angles", "description": "Circle properties.", "estimatedMinutes": 25},
+            {"name": "Mensuration: Composite Shapes", "description": "Area of combined shapes.", "estimatedMinutes": 30},
+            {"name": "Trigonometry (Basic)", "description": "Ratios in right triangles.", "estimatedMinutes": 30},
+            {"name": "Statistics (Revision)", "description": "Measures review.", "estimatedMinutes": 25},
+            {"name": "Probability (Revision)", "description": "Probability review.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Complex Sentences", "description": "Main and subordinate clauses.", "estimatedMinutes": 25},
+            {"name": "Summary Writing", "description": "Basic summary skills.", "estimatedMinutes": 25},
+            {"name": "Formal Letters: Application", "description": "Writing applications.", "estimatedMinutes": 25},
+            {"name": "Stress and Intonation", "description": "Word stress.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "The Eye and Vision", "description": "Parts and defects.", "estimatedMinutes": 25},
+            {"name": "The Ear and Hearing", "description": "Structure and functions.", "estimatedMinutes": 25},
+            {"name": "Work, Energy and Power", "description": "Basic definitions.", "estimatedMinutes": 25},
+            {"name": "Chemical Compounds", "description": "Common compounds.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Programming Languages", "description": "Low and high level.", "estimatedMinutes": 20},
+            {"name": "BASIC Language (Review)", "description": "Simple programs.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "JSS3",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Bearing and Distances", "description": "Compass directions.", "estimatedMinutes": 25},
+            {"name": "Graphical Solutions of Equations", "description": "Reading from graphs.", "estimatedMinutes": 25},
+            {"name": "Financial Arithmetic", "description": "Profit, loss, simple interest.", "estimatedMinutes": 30},
+            {"name": "Revision for BECE", "description": "Mixed revision.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Comprehension (Frequency Practice)", "description": "Frequent practice.", "estimatedMinutes": 25},
+            {"name": "Essay Types (Revision)", "description": "All essay types.", "estimatedMinutes": 25},
+            {"name": "Lexis and Structure (Practice)", "description": "Vocabulary practice.", "estimatedMinutes": 25},
+            {"name": "BECE Practice", "description": "Mixed practice.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Basic Science",
+          "code": "BAS",
+          "topics": [
+            {"name": "Revision: Biology Concepts", "description": "Biology review.", "estimatedMinutes": 20},
+            {"name": "Revision: Physics Concepts", "description": "Physics review.", "estimatedMinutes": 20},
+            {"name": "Revision: Chemistry Concepts", "description": "Chemistry review.", "estimatedMinutes": 20},
+            {"name": "BECE Practice", "description": "Mixed practice.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "Computer Studies",
+          "code": "CSC",
+          "topics": [
+            {"name": "Desktop Publishing", "description": "Introduction to DTP.", "estimatedMinutes": 25},
+            {"name": "BECE Practice", "description": "Mixed practice.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    }
+  ]
+}

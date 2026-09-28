@@ -1,0 +1,222 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Introduction to Chemistry", "description": "What chemistry is, importance and careers.", "estimatedMinutes": 20},
+            {"name": "Laboratory Apparatus and Safety", "description": "Common apparatus, handling chemicals, safety rules.", "estimatedMinutes": 25},
+            {"name": "Particulate Nature of Matter", "description": "Atoms, molecules, ions and the kinetic theory.", "estimatedMinutes": 25},
+            {"name": "Elements, Compounds and Mixtures", "description": "Differences and methods of separation.", "estimatedMinutes": 25},
+            {"name": "Chemical Symbols, Formulae and Equations", "description": "Writing symbols, formulae and balancing equations.", "estimatedMinutes": 30},
+            {"name": "Atomic Structure", "description": "Protons, neutrons, electrons and isotopes.", "estimatedMinutes": 30},
+            {"name": "The Periodic Table", "description": "Groups and periods, families of elements.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Electronic Configuration", "description": "Shells, sub-shells and configuration of elements.", "estimatedMinutes": 30},
+            {"name": "Chemical Bonding I", "description": "Ionic and covalent bonding.", "estimatedMinutes": 30},
+            {"name": "Chemical Bonding II", "description": "Metallic bonding and intermolecular forces.", "estimatedMinutes": 25},
+            {"name": "Ions and Ionic Equations", "description": "Formation of ions and writing ionic equations.", "estimatedMinutes": 25},
+            {"name": "Mole Concept I", "description": "Moles, molar mass and Avogadro's number.", "estimatedMinutes": 35},
+            {"name": "Mole Concept II", "description": "Empirical and molecular formulae.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Rates of Reaction", "description": "Factors affecting reaction rates.", "estimatedMinutes": 25},
+            {"name": "Thermochemistry", "description": "Exothermic and endothermic reactions.", "estimatedMinutes": 25},
+            {"name": "Energy Changes in Reactions", "description": "Enthalpy changes and calculations.", "estimatedMinutes": 30},
+            {"name": "Introduction to Organic Chemistry", "description": "Homologous series, alkanes and alkenes.", "estimatedMinutes": 30},
+            {"name": "Saturated and Unsaturated Hydrocarbons", "description": "Alkanes vs alkenes, addition reactions.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {
+              "name": "Acids, Bases and Salts",
+              "description": "Properties, pH scale, salts and preparation.",
+              "estimatedMinutes": 30,
+              "lesson": {
+                "title": "Acids, Bases and Salts",
+                "introduction": "Acids, bases and salts are among the most important substances in chemistry and daily life.",
+                "explanation": "An acid is a substance that produces hydrogen ions (H⁺) in solution. Acids taste sour, turn blue litmus red, and react with bases to form salt and water.\n\nA base is a substance that produces OH⁻ ions in solution or accepts H⁺. Bases feel soapy and turn red litmus blue. Soluble bases are called alkalis.\n\nNeutralization: Acid + Base → Salt + Water, e.g. HCl + NaOH → NaCl + H₂O.\n\nThe pH scale runs 0–14. pH 7 is neutral, below 7 is acidic, above 7 is alkaline.\n\nA salt is formed when the hydrogen of an acid is replaced by a metal. Salts can be prepared by neutralization, action of acids on metals/carbonates, etc. Common salts include NaCl (table salt) and Na₂CO₃ (washing soda).",
+                "keyPoints": [
+                  "Acid → H⁺ ions; turns blue litmus red.",
+                  "Base → OH⁻ ions; turns red litmus blue.",
+                  "Acid + Base → Salt + Water.",
+                  "pH: 0–6 acidic, 7 neutral, 8–14 alkaline."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "An aqueous solution that turns blue litmus paper red is", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "alkaline"}, {"key": "B", "text": "acidic"}, {"key": "C", "text": "neutral"}, {"key": "D", "text": "a salt"}],
+                  "correctKey": "B",
+                  "explanation": "Acids turn blue litmus red."
+                },
+                {
+                  "type": "MCQ", "prompt": "The pH of a neutral solution is", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "0"}, {"key": "B", "text": "7"}, {"key": "C", "text": "14"}, {"key": "D", "text": "1"}],
+                  "correctKey": "B",
+                  "explanation": "Pure water has pH 7, which is neutral."
+                },
+                {
+                  "type": "MCQ", "prompt": "Neutralization of hydrochloric acid with sodium hydroxide produces", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "Sodium chloride and water"}, {"key": "B", "text": "Sodium oxide and hydrogen"}, {"key": "C", "text": "Chlorine and water"}, {"key": "D", "text": "Sodium chloride and hydrogen"}],
+                  "correctKey": "A",
+                  "explanation": "HCl + NaOH → NaCl + H₂O: salt and water."
+                },
+                {
+                  "type": "MCQ", "prompt": "A soluble base is called a(n)", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "acid"}, {"key": "B", "text": "alkali"}, {"key": "C", "text": "salt"}, {"key": "D", "text": "oxide"}],
+                  "correctKey": "B",
+                  "explanation": "Alkalis are bases that dissolve in water, e.g. NaOH."
+                }
+              ]
+            },
+            {
+              "name": "Mole Concept and Stoichiometry",
+              "description": "Masses from equations and concentration.",
+              "estimatedMinutes": 35,
+              "lesson": {
+                "title": "Moles and the Mole Concept",
+                "introduction": "The mole is the chemist's counting unit, like a dozen is for eggs.",
+                "explanation": "One mole of any substance contains Avogadro's number (6.02 × 10²³) of particles. The mass of one mole is the molar mass (relative atomic/formula mass in grams).\n\nNumber of moles = mass (g) / molar mass (g/mol).\n\nExample: How many moles are in 24 g of carbon (Ar = 12)?\nMoles = 24 / 12 = 2 mol.\n\nConcentration: moles = concentration (mol/dm³) × volume (dm³).\n\nBalanced equations tell us the mole ratios. In 2H₂ + O₂ → 2H₂O, 2 mol of H₂ react with 1 mol of O₂ to give 2 mol of H₂O.",
+                "keyPoints": [
+                  "1 mole = 6.02 × 10²³ particles.",
+                  "Moles = mass / molar mass.",
+                  "Concentration in mol/dm³.",
+                  "Balanced equations give mole ratios."
+                ],
+                "formulas": [
+                  {"name": "Number of moles", "expression": "n = m / M", "meaning": "mass divided by molar mass"},
+                  {"name": "Concentration", "expression": "C = n / V", "meaning": "moles per volume in dm³"}
+                ]
+              },
+              "questions": [
+                {
+                  "type": "CALCULATION", "prompt": "How many moles are in 24 g of carbon given that its relative atomic mass is 12?", "difficulty": 2, "marks": 2,
+                  "correctValue": "2", "correctUnit": "mol", "tolerance": 0.05,
+                  "expectedWorking": "n = m / Ar\nn = 24 / 12\nn = 2 mol",
+                  "explanation": "Divide mass by molar mass: 24/12 = 2 mol."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "Calculate the molar mass of CaCO₃ (Ca=40, C=12, O=16).", "difficulty": 2, "marks": 2,
+                  "correctValue": "100", "correctUnit": "g/mol", "tolerance": 0.05,
+                  "expectedWorking": "CaCO3 = 40 + 12 + (3 × 16) = 40 + 12 + 48 = 100 g/mol",
+                  "explanation": "Add the atomic masses: Ca 40, C 12, three O (48) = 100 g/mol."
+                },
+                {
+                  "type": "MCQ", "prompt": "Avogadro's number is approximately", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "6.02 × 10²³"}, {"key": "B", "text": "6.02 × 10²²"}, {"key": "C", "text": "3.14 × 10²³"}, {"key": "D", "text": "9.8 × 10²³"}],
+                  "correctKey": "A",
+                  "explanation": "One mole contains 6.02 × 10²³ particles."
+                }
+              ]
+            },
+            {"name": "Electrolysis", "description": "Electrolytes, electrodes and products of electrolysis.", "estimatedMinutes": 30},
+            {"name": "Redox Reactions", "description": "Oxidation and reduction, oxidation numbers.", "estimatedMinutes": 30},
+            {"name": "Water Quality and Treatment", "description": "Hardness, purification and tests for water.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Chemical Equilibrium", "description": "Reversible reactions and Le Chatelier's principle.", "estimatedMinutes": 30},
+            {"name": "Oxygen and Hydrogen", "description": "Preparation, properties and uses.", "estimatedMinutes": 25},
+            {"name": "Halogens", "description": "Properties of halogens and displacement reactions.", "estimatedMinutes": 25},
+            {"name": "Nitrogen and Ammonia", "description": "Haber process and nitrogen cycle.", "estimatedMinutes": 25},
+            {"name": "Sulphur and its Compounds", "description": "Properties and uses of sulphur.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Organic Chemistry: Alkanols", "description": "Structure, properties and reactions of alcohols.", "estimatedMinutes": 30},
+            {"name": "Organic Chemistry: Alkanoic Acids", "description": "Properties of carboxylic acids.", "estimatedMinutes": 25},
+            {"name": "Alkanoates (Esters)", "description": "Formation, properties and uses.", "estimatedMinutes": 25},
+            {"name": "Saponification and Soaps", "description": "Making soap and cleaning action.", "estimatedMinutes": 25},
+            {"name": "Petrochemicals and Polymers", "description": "Fractional distillation and polymerisation.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Chemical Industries", "description": "Contact process and Haber process.", "estimatedMinutes": 30},
+            {"name": "Radioactivity in Chemistry", "description": "Types of radiation and uses.", "estimatedMinutes": 25},
+            {"name": "Quantitative Analysis", "description": "Titrations and calculations.", "estimatedMinutes": 35},
+            {"name": "Qualitative Analysis", "description": "Tests for ions and gases.", "estimatedMinutes": 30},
+            {"name": "Metals and their Ores", "description": "Extraction of metals.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Chemistry",
+          "code": "CHM",
+          "topics": [
+            {"name": "Electrochemistry (Revision)", "description": "Revision of electrolysis and cells.", "estimatedMinutes": 25},
+            {"name": "Organic Chemistry (Revision)", "description": "Revision of homologous series.", "estimatedMinutes": 25},
+            {"name": "Practical Chemistry (Revision)", "description": "Revision of practical skills.", "estimatedMinutes": 30},
+            {"name": "WAEC/JAMB Preparation", "description": "Mixed chemistry revision questions.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    }
+  ]
+}

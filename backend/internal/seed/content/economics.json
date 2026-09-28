@@ -1,0 +1,181 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {
+              "name": "Meaning and Scope of Economics",
+              "description": "Economics as a science and its basic concepts.",
+              "estimatedMinutes": 25,
+              "lesson": {
+                "title": "What is Economics?",
+                "introduction": "Economics studies how people and society choose to use scarce resources to satisfy unlimited wants.",
+                "explanation": "Human wants are unlimited, but resources are scarce. This creates the central economic problem: scarcity. Because of scarcity, every choice involves a trade-off.\n\nOpportunity cost is the next best alternative you give up when you make a choice. If you spend N500 on a pen, its opportunity cost is what else you could have bought with N500.\n\nMicroeconomics studies individual units (households, firms). Macroeconomics studies the whole economy (inflation, unemployment, national income).",
+                "keyPoints": [
+                  "Wants are unlimited; resources are scarce.",
+                  "Scarcity forces choices.",
+                  "Opportunity cost = next best alternative given up.",
+                  "Micro vs macro economics."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "The fundamental economic problem in every society is", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "inflation"}, {"key": "B", "text": "scarcity"}, {"key": "C", "text": "unemployment"}, {"key": "D", "text": "taxation"}],
+                  "correctKey": "B",
+                  "explanation": "Scarcity — limited resources vs unlimited wants — is the basic problem."
+                },
+                {
+                  "type": "MCQ", "prompt": "Opportunity cost is best described as", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "money spent on a good"}, {"key": "B", "text": "the next best alternative forgone"}, {"key": "C", "text": "total cost of production"}, {"key": "D", "text": "price of the good"}],
+                  "correctKey": "B",
+                  "explanation": "Opportunity cost is the value of the best alternative you give up."
+                },
+                {
+                  "type": "MCQ", "prompt": "The study of inflation and unemployment belongs to", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "microeconomics"}, {"key": "B", "text": "macroeconomics"}, {"key": "C", "text": "managerial economics"}, {"key": "D", "text": "positive economics"}],
+                  "correctKey": "B",
+                  "explanation": "Macroeconomics looks at economy-wide issues like inflation and unemployment."
+                }
+              ]
+            },
+            {"name": "Resources and Human Capital", "description": "Resource allocation, human capital development.", "estimatedMinutes": 25},
+            {"name": "Basic Economic Concepts", "description": "Economic goods, wants, scale of preference.", "estimatedMinutes": 20},
+            {"name": "Demand", "description": "The law of demand and demand schedule.", "estimatedMinutes": 30},
+            {"name": "Supply", "description": "The law of supply and supply schedule.", "estimatedMinutes": 30},
+            {"name": "Market Equilibrium", "description": "Equilibrium price and surplus/shortage.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "Elasticity of Demand", "description": "Price, income and cross elasticity.", "estimatedMinutes": 30},
+            {"name": "Elasticity of Supply", "description": "Factors affecting supply elasticity.", "estimatedMinutes": 25},
+            {"name": "Production", "description": "Factors of production and their rewards.", "estimatedMinutes": 30},
+            {"name": "Division of Labour and Specialisation", "description": "Benefits and limitations.", "estimatedMinutes": 25},
+            {"name": "Scale of Production", "description": "Returns to scale and economies of scale.", "estimatedMinutes": 30},
+            {"name": "Costs and Revenue", "description": "Total, average and marginal concepts.", "estimatedMinutes": 30},
+            {"name": "Market Structures", "description": "Perfect competition, monopoly, oligopoly.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "National Income", "description": "GDP, GNP and methods of measuring.", "estimatedMinutes": 30},
+            {"name": "Money and its Functions", "description": "Characteristics and functions of money.", "estimatedMinutes": 25},
+            {"name": "Financial Institutions", "description": "Central bank and commercial banks.", "estimatedMinutes": 30},
+            {"name": "Money Supply and Inflation", "description": "Causes and effects of inflation.", "estimatedMinutes": 25},
+            {"name": "Banking Instruments", "description": "Cheques, drafts and other instruments.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "Economic Systems", "description": "Capitalism, socialism and mixed economy.", "estimatedMinutes": 30},
+            {"name": "The Price System", "description": "How prices allocate resources.", "estimatedMinutes": 25},
+            {"name": "Market Analysis (Revision)", "description": "Revision of demand, supply and equilibrium.", "estimatedMinutes": 25},
+            {"name": "Theory of the Firm", "description": "Firms and their objectives.", "estimatedMinutes": 25},
+            {"name": "Concepts of Economic Growth and Development", "description": "Growth vs development indicators.", "estimatedMinutes": 30},
+            {"name": "Agriculture in Nigeria", "description": "Role and problems of agriculture.", "estimatedMinutes": 25},
+            {"name": "Petroleum Economics", "description": "Contribution of oil to the Nigerian economy.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "International Trade", "description": "Basis, gains and barriers to trade.", "estimatedMinutes": 30},
+            {"name": "Balance of Payments", "description": "Visible and invisible trade.", "estimatedMinutes": 25},
+            {"name": "Exchange Rates", "description": "Systems and effects of depreciation.", "estimatedMinutes": 25},
+            {"name": "Economic Integration", "description": "ECOWAS and European Union.", "estimatedMinutes": 25},
+            {"name": "Public Finance", "description": "Government revenue and expenditure.", "estimatedMinutes": 30},
+            {"name": "Fiscal and Monetary Policy", "description": "Tools of stabilization.", "estimatedMinutes": 30},
+            {"name": "Inflation and Unemployment (Revision)", "description": "Types and remedies.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "Population and Economic Development", "description": "Size, growth and policies in Nigeria.", "estimatedMinutes": 30},
+            {"name": "Poverty and Inequality", "description": "Measures and reduction strategies.", "estimatedMinutes": 25},
+            {"name": "Unemployment", "description": "Types and solutions.", "estimatedMinutes": 25},
+            {"name": "Development Planning in Nigeria", "description": "Plans and their achievements.", "estimatedMinutes": 25},
+            {"name": "Economic Reforms and Policies", "description": "SAP, deregulation and reforms.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "Theory of Price Determination (Revision)", "description": "Revision of price theory.", "estimatedMinutes": 25},
+            {"name": "Distribution: Rent and Wages", "description": "Theories of distribution.", "estimatedMinutes": 30},
+            {"name": "Distribution: Interest and Profit", "description": "Theories of interest and profit.", "estimatedMinutes": 30},
+            {"name": "Money and Banking (Revision)", "description": "Revision of banking.", "estimatedMinutes": 25},
+            {"name": "National Income (Revision)", "description": "Revision of national income accounting.", "estimatedMinutes": 25},
+            {"name": "WAEC/JAMB Preparation", "description": "Mixed economics revision.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Economics",
+          "code": "ECO",
+          "topics": [
+            {"name": "International Economics (Revision)", "description": "Revision of trade and exchange rates.", "estimatedMinutes": 25},
+            {"name": "Economic Problems of Nigeria (Revision)", "description": "Revision of socio-economic issues.", "estimatedMinutes": 25},
+            {"name": "Current Economic Issues", "description": "Contemporary Nigerian economic issues.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    }
+  ]
+}

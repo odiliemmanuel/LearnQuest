@@ -1,0 +1,276 @@
+{
+  "curriculum": [
+    {
+      "class": "SS1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {
+              "name": "Number Bases",
+              "description": "Conversion between base 2, 8, 10 and 16; operations in different bases.",
+              "estimatedMinutes": 30,
+              "lesson": {
+                "title": "Working with Number Bases",
+                "introduction": "We normally count in base ten, but computers count in base two, and other bases are also used.",
+                "explanation": "In base 10 each digit is worth a power of ten (units, tens, hundreds...). In base 2 each digit is worth a power of two.\n\nExample: 1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11.\n\nTo convert from base 10 to another base, divide by the base repeatedly and keep the remainders, reading them from the last to the first.\n\nExample: Convert 13 to base 2.\n13 ÷ 2 = 6 remainder 1\n6 ÷ 2 = 3 remainder 0\n3 ÷ 2 = 1 remainder 1\n1 ÷ 2 = 0 remainder 1\nReading the remainders upward: 1101₂.",
+                "keyPoints": [
+                  "Place value depends on the base.",
+                  "Base 2 uses only digits 0 and 1.",
+                  "To convert to base 10, expand in powers of the base.",
+                  "To convert from base 10, divide repeatedly by the base."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "CALCULATION", "prompt": "Convert 1011 (base two) to base ten.", "difficulty": 2, "marks": 2,
+                  "correctValue": "11", "correctUnit": "", "tolerance": 0.5,
+                  "expectedWorking": "1011 base2 = 1×2^3 + 0×2^2 + 1×2^1 + 1×2^0\n= 8 + 0 + 2 + 1\n= 11 in base ten",
+                  "explanation": "Expand using powers of 2: 8 + 2 + 1 = 11."
+                },
+                {
+                  "type": "MCQ", "prompt": "Convert 5 (base ten) to binary.", "difficulty": 2, "marks": 1,
+                  "options": [{"key": "A", "text": "100"}, {"key": "B", "text": "101"}, {"key": "C", "text": "110"}, {"key": "D", "text": "111"}],
+                  "correctKey": "B",
+                  "explanation": "5 = 4 + 1 = 1×2² + 0×2¹ + 1×2⁰ = 101₂."
+                },
+                {
+                  "type": "MCQ", "prompt": "In base two, the digit 0 and ___ are used.", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "2"}, {"key": "B", "text": "1"}, {"key": "C", "text": "8"}, {"key": "D", "text": "10"}],
+                  "correctKey": "B",
+                  "explanation": "Binary uses only the digits 0 and 1."
+                }
+              ]
+            },
+            {"name": "Modules and Indices", "description": "Laws of indices, standard form.", "estimatedMinutes": 30},
+            {"name": "Logarithms", "description": "Laws of logarithms and applications.", "estimatedMinutes": 30},
+            {"name": "Sets", "description": "Set notation, Venn diagrams and set operations.", "estimatedMinutes": 25},
+            {"name": "Simple Equations", "description": "Solving linear equations and word problems.", "estimatedMinutes": 25},
+            {"name": "Changing the Subject of a Formula", "description": "Rearranging formulae.", "estimatedMinutes": 20},
+            {"name": "Inequalities", "description": "Linear inequalities and number lines.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Quadratic Equations", "description": "Solving by factorization, formula and completing the square.", "estimatedMinutes": 35},
+            {"name": "Simultaneous Linear Equations", "description": "Elimination and substitution methods.", "estimatedMinutes": 30},
+            {"name": "Linear Inequalities in Two Variables", "description": "Graphical solutions of inequalities.", "estimatedMinutes": 30},
+            {"name": "Straight Line Graphs", "description": "Gradient, intercept, equation of a line.", "estimatedMinutes": 30},
+            {"name": "Graphical Solutions of Equations", "description": "Using graphs to solve equations.", "estimatedMinutes": 25},
+            {"name": "Trigonometric Ratios", "description": "Sine, cosine and tangent of angles.", "estimatedMinutes": 30},
+            {"name": "Angles of Elevation and Depression", "description": "Applying trig to real problems.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Mensuration of Plane Shapes", "description": "Area and perimeter of common shapes.", "estimatedMinutes": 30},
+            {"name": "Mensuration of Solid Shapes", "description": "Volume and surface area of prisms, cylinders, cones, spheres.", "estimatedMinutes": 35},
+            {"name": "Statistics I", "description": "Frequency tables, mean, median, mode.", "estimatedMinutes": 30},
+            {"name": "Statistics II", "description": "Pie charts, bar charts, histograms.", "estimatedMinutes": 25},
+            {"name": "Probability I", "description": "Basic probability concepts.", "estimatedMinutes": 25},
+            {"name": "Probability II", "description": "Combined events and tree diagrams.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {
+              "name": "Algebra: Quadratic Expressions",
+              "description": "Factorization, expansion and simplifying quadratic expressions.",
+              "estimatedMinutes": 30,
+              "lesson": {
+                "title": "Factorizing Quadratic Expressions",
+                "introduction": "A quadratic expression has the form ax² + bx + c where a is not zero.",
+                "explanation": "When a = 1, we look for two numbers that multiply to give c and add to give b.\n\nExample: x² + 5x + 6. We need two numbers whose product is 6 and sum is 5. They are 2 and 3.\nSo x² + 5x + 6 = (x + 2)(x + 3).\n\nWhen a is not 1, we use the product-sum method: multiply a and c, find two numbers with that product and a sum of b, then factor by grouping.\n\nExample: 2x² + 7x + 3. a×c = 6, b = 7. The numbers are 6 and 1.\n2x² + 6x + 1x + 3 = 2x(x + 3) + 1(x + 3) = (2x + 1)(x + 3).\n\nAlways check by expanding your answer.",
+                "keyPoints": [
+                  "Quadratic: ax² + bx + c.",
+                  "For a = 1: find two numbers with product c and sum b.",
+                  "For a ≠ 1: use product a×c and sum b, then group.",
+                  "Always expand to check."
+                ],
+                "formulas": [
+                  {"name": "Quadratic formula", "expression": "x = (-b ± sqrt(b² - 4ac)) / 2a", "meaning": "Solves any quadratic equation"}
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "Factorize x² + 5x + 6", "difficulty": 2, "marks": 2,
+                  "options": [
+                    {"key": "A", "text": "(x + 2)(x + 3)"},
+                    {"key": "B", "text": "(x - 2)(x + 3)"},
+                    {"key": "C", "text": "(x + 1)(x + 6)"},
+                    {"key": "D", "text": "(x + 2)(x - 3)"}
+                  ],
+                  "correctKey": "A",
+                  "explanation": "Two numbers with product 6 and sum 5 are 2 and 3, so x² + 5x + 6 = (x + 2)(x + 3)."
+                },
+                {
+                  "type": "MCQ", "prompt": "Solve x² - 9 = 0", "difficulty": 2, "marks": 2,
+                  "options": [{"key": "A", "text": "x = 3 only"}, {"key": "B", "text": "x = ±3"}, {"key": "C", "text": "x = 9"}, {"key": "D", "text": "x = -9"}],
+                  "correctKey": "B",
+                  "explanation": "x² = 9 so x = +3 or x = -3 (difference of two squares)."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "Solve the equation x² - 5x + 6 = 0. Give all real solutions separated by commas if there are two (e.g. 2,3).", "difficulty": 2, "marks": 2,
+                  "correctValue": "2,3", "correctUnit": "", "tolerance": 0.05,
+                  "expectedWorking": "x² - 5x + 6 = 0\n(x - 2)(x - 3) = 0\nx = 2 or x = 3",
+                  "explanation": "Factorize as difference of two binomials: (x-2)(x-3)=0 gives x=2 or x=3."
+                },
+                {
+                  "type": "MCQ", "prompt": "The product of two numbers is -6 and their sum is -1. What are the numbers?", "difficulty": 3, "marks": 2,
+                  "options": [{"key": "A", "text": "-3 and 2"}, {"key": "B", "text": "-2 and 3"}, {"key": "C", "text": "2 and 3"}, {"key": "D", "text": "-3 and -2"}],
+                  "correctKey": "A",
+                  "explanation": "-3 + 2 = -1 and -3 × 2 = -6, so the pair is -3 and 2. This is the product-sum trick used when factorizing x² + x - 6."
+                }
+              ]
+            },
+            {
+              "name": "Algebra: Quadratic Equations",
+              "description": "Solving quadratic equations by factorization, formula and graphs.",
+              "estimatedMinutes": 35,
+              "lesson": {
+                "title": "Solving Quadratic Equations",
+                "introduction": "A quadratic equation is a quadratic expression set equal to zero, for example x² - 5x + 6 = 0.",
+                "explanation": "Method 1 — Factorization: write the expression as a product of two brackets, then set each bracket to zero.\n\nx² - 5x + 6 = 0 → (x - 2)(x - 3) = 0 → x = 2 or x = 3.\n\nMethod 2 — Quadratic formula: when factorization is hard, use\nx = (-b ± sqrt(b² - 4ac)) / 2a.\n\nFor 2x² + 7x - 4 = 0, a = 2, b = 7, c = -4:\nDiscriminant = b² - 4ac = 49 + 32 = 81\nx = (-7 ± sqrt(81)) / 4 = (-7 ± 9)/4\nx = 2/4 = 0.5 or x = -16/4 = -4.",
+                "keyPoints": [
+                  "Set the equation to zero first.",
+                  "Factorize, then solve each bracket.",
+                  "The formula solves any quadratic.",
+                  "Discriminant b² - 4ac decides the roots."
+                ]
+              },
+              "questions": [
+                {
+                  "type": "MCQ", "prompt": "Which of the following is a quadratic equation?", "difficulty": 1, "marks": 1,
+                  "options": [{"key": "A", "text": "2x + 1 = 5"}, {"key": "B", "text": "x² + 2x - 3 = 0"}, {"key": "C", "text": "1/x = 3"}, {"key": "D", "text": "x³ - 1 = 0"}],
+                  "correctKey": "B",
+                  "explanation": "A quadratic has the highest power of x as 2, like x² + 2x - 3 = 0."
+                },
+                {
+                  "type": "CALCULATION", "prompt": "Use the quadratic formula to solve 2x² - 7x + 3 = 0. Give the two solutions separated by a comma (e.g. 0.5,3).", "difficulty": 3, "marks": 3,
+                  "correctValue": "0.5,3", "correctUnit": "", "tolerance": 0.01,
+                  "expectedWorking": "a=2, b=-7, c=3\nDiscriminant = (-7)^2 - 4(2)(3) = 49 - 24 = 25\nx = (7 ± sqrt(25)) / 4 = (7 ± 5)/4\nx = 3 or x = 0.5",
+                  "explanation": "x = (7 ± 5)/4 gives x = 3 and x = 0.5."
+                }
+              ]
+            },
+            {"name": "Fractions and Rational Algebraic Expressions", "description": "Simplifying and operating on algebraic fractions.", "estimatedMinutes": 25},
+            {"name": "Simultaneous Equations", "description": "Solving simultaneous linear and quadratic equations.", "estimatedMinutes": 30},
+            {"name": "Circle Geometry", "description": "Properties of chords, arcs, angles in a circle.", "estimatedMinutes": 30},
+            {"name": "Coordinate Geometry", "description": "Distance, midpoint and gradient between points.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Calculus: Limits and Differentiation", "description": "Concept of limits and differentiation from first principles.", "estimatedMinutes": 35},
+            {"name": "Differentiation of Polynomials", "description": "Rules for differentiating simple polynomials.", "estimatedMinutes": 30},
+            {"name": "Applications of Differentiation", "description": "Gradients, tangents, velocity and rate of change.", "estimatedMinutes": 30},
+            {"name": "Trigonometric Functions", "description": "Graphs and equations of sine, cosine and tangent.", "estimatedMinutes": 30},
+            {"name": "Integration I", "description": "Integration as the reverse of differentiation.", "estimatedMinutes": 30},
+            {"name": "Locus and Constructions", "description": "Locus of points under given conditions.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Vectors in Two Dimensions", "description": "Scalars and vectors, components and magnitude.", "estimatedMinutes": 30},
+            {"name": "Matrices", "description": "Addition, multiplication and determinant of matrices.", "estimatedMinutes": 30},
+            {"name": "Statistics: Measures of Dispersion", "description": "Range, variance and standard deviation.", "estimatedMinutes": 30},
+            {"name": "Probability of Combined Events", "description": "Mutually exclusive and independent events.", "estimatedMinutes": 30},
+            {"name": "Sequences and Series", "description": "Arithmetic and geometric progression.", "estimatedMinutes": 30}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Surds", "description": "Simplification, rationalization and operations on surds.", "estimatedMinutes": 30},
+            {"name": "Indices and Standard Form", "description": "Laws of indices and expressing numbers in standard form.", "estimatedMinutes": 25},
+            {"name": "Logarithms", "description": "Evaluation and applications of logarithms.", "estimatedMinutes": 30},
+            {"name": "Quadratic Functions", "description": "Graphs, maximum and minimum values.", "estimatedMinutes": 30},
+            {"name": "Functions and Relations", "description": "Composite and inverse functions.", "estimatedMinutes": 25},
+            {"name": "Bearings and Distances", "description": "Bearing problems and scale drawings.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Longitude and Latitude", "description": "Earth geometry and time zones.", "estimatedMinutes": 30},
+            {"name": "Differentiation (Revision)", "description": "Review of differentiation applications.", "estimatedMinutes": 25},
+            {"name": "Integration (Revision)", "description": "Definite integrals and area under curves.", "estimatedMinutes": 30},
+            {"name": "Probability (Revision)", "description": "Revision of combined probabilities.", "estimatedMinutes": 25},
+            {"name": "Statistics (Revision)", "description": "Full revision of statistical measures.", "estimatedMinutes": 25},
+            {"name": "Mensuration (Revision)", "description": "Revision of plane and solid mensuration.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "SS3",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "WAEC/JAMB Revision I", "description": "Objective questions covering the syllabus.", "estimatedMinutes": 40},
+            {"name": "WAEC/JAMB Revision II", "description": "Theory and word problems.", "estimatedMinutes": 40}
+          ]
+        }
+      ]
+    }
+  ]
+}

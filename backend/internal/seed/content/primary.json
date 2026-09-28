@@ -1,0 +1,502 @@
+{
+  "curriculum": [
+    {
+      "class": "Primary 1",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Counting 1-100", "description": "Counting, reading and writing numbers.", "estimatedMinutes": 20},
+            {"name": "Addition of Whole Numbers", "description": "Adding numbers up to 20.", "estimatedMinutes": 20},
+            {"name": "Subtraction of Whole Numbers", "description": "Subtracting numbers up to 20.", "estimatedMinutes": 20},
+            {"name": "Shapes", "description": "Recognising common shapes.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Alphabet and Letter Sounds", "description": "Recognising letters and sounds.", "estimatedMinutes": 20},
+            {"name": "Phonics: First Words", "description": "Reading simple words.", "estimatedMinutes": 20},
+            {"name": "Greetings and Simple Sentences", "description": "Speaking politely.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "Basic Science and Technology",
+          "code": "BAS",
+          "topics": [
+            {"name": "Living and Non-Living Things", "description": "Observing things around us.", "estimatedMinutes": 20},
+            {"name": "Water", "description": "Uses of water.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 1",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Fractions (Halves and Quarters)", "description": "Introduction to simple fractions.", "estimatedMinutes": 20},
+            {"name": "Money", "description": "Recognising coins and notes.", "estimatedMinutes": 15},
+            {"name": "Measurement: Length and Mass", "description": "Simple measurements.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Building Words", "description": "Consonant-vowel-consonant words.", "estimatedMinutes": 20},
+            {"name": "Simple Comprehension", "description": "Answering simple questions.", "estimatedMinutes": 20},
+            {"name": "Writing: Letters of the Alphabet", "description": "Writing small and capital letters.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 1",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Multiplication as Repeated Addition", "description": "Early multiplication ideas.", "estimatedMinutes": 20},
+            {"name": "Time and the Clock", "description": "Telling the hour.", "estimatedMinutes": 15},
+            {"name": "Simple Data Collection", "description": "Counting and recording.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Reading Story Books", "description": "Reading simple stories.", "estimatedMinutes": 20},
+            {"name": "Spelling Common Words", "description": "Spelling practice.", "estimatedMinutes": 15},
+            {"name": "Telling a Story", "description": "Speaking clearly.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 2",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Counting and Place Value", "description": "Hundreds, tens and units.", "estimatedMinutes": 20},
+            {"name": "Addition up to 100", "description": "Adding two-digit numbers.", "estimatedMinutes": 20},
+            {"name": "Multiplication Tables (2, 3, 4)", "description": "Learning simple tables.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Naming Words (Nouns)", "description": "Nouns in sentences.", "estimatedMinutes": 20},
+            {"name": "Action Words (Verbs)", "description": "Verbs in sentences.", "estimatedMinutes": 20},
+            {"name": "Reading Comprehension", "description": "Reading and answering questions.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science and Technology",
+          "code": "BAS",
+          "topics": [
+            {"name": "Plants Around Us", "description": "Parts of a plant.", "estimatedMinutes": 20},
+            {"name": "Animals Around Us", "description": "Common animals.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 2",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Subtraction up to 100", "description": "Subtracting two-digit numbers.", "estimatedMinutes": 20},
+            {"name": "Division as Sharing", "description": "Early division.", "estimatedMinutes": 20},
+            {"name": "Fractions (Halves, Thirds, Quarters)", "description": "Recognising fractions.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Describing Words (Adjectives)", "description": "Adjectives in sentences.", "estimatedMinutes": 20},
+            {"name": "Sentences and Full Stops", "description": "Writing complete sentences.", "estimatedMinutes": 20},
+            {"name": "Paragraph Writing", "description": "Writing short paragraphs.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 2",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Money and Shopping", "description": "Counting money and change.", "estimatedMinutes": 20},
+            {"name": "Measurement: Length, Mass and Time", "description": "Measuring and comparing.", "estimatedMinutes": 20},
+            {"name": "Pictographs", "description": "Reading picture charts.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Comprehension and Vocabulary", "description": "Comprehension practice.", "estimatedMinutes": 20},
+            {"name": "Writing Simple Letters", "description": "Thank-you notes.", "estimatedMinutes": 15},
+            {"name": "Story Telling and Listening", "description": "Listening comprehension.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 3",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Whole Numbers up to 1000", "description": "Place value to thousands.", "estimatedMinutes": 20},
+            {"name": "Addition and Subtraction", "description": "Three-digit arithmetic.", "estimatedMinutes": 20},
+            {"name": "Multiplication and Division", "description": "Tables up to 6.", "estimatedMinutes": 20},
+            {"name": "Fractions", "description": "Equivalent fractions.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Nouns, Verbs and Adjectives", "description": "Parts of speech practice.", "estimatedMinutes": 20},
+            {"name": "Reading Comprehension", "description": "Comprehension skills.", "estimatedMinutes": 20},
+            {"name": "Simple Punctuation", "description": "Full stops, commas, question marks.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "Basic Science and Technology",
+          "code": "BAS",
+          "topics": [
+            {"name": "The Human Body", "description": "Parts of the body.", "estimatedMinutes": 20},
+            {"name": "Simple Machines", "description": "Tools in everyday life.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 3",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Money and Change", "description": "Calculating change.", "estimatedMinutes": 20},
+            {"name": "Measurement: Length and Perimeter", "description": "Measuring perimeters.", "estimatedMinutes": 20},
+            {"name": "Time: Hours and Minutes", "description": "Reading the clock.", "estimatedMinutes": 15},
+            {"name": "Charts and Pictographs", "description": "Reading bar charts.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Tenses: Past and Present", "description": "Forming tenses.", "estimatedMinutes": 20},
+            {"name": "Formal and Informal Greetings", "description": "Everyday English.", "estimatedMinutes": 15},
+            {"name": "Comprehension: Detail", "description": "Answering detail questions.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 3",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Multiplication Tables (7-9)", "description": "Completing the tables.", "estimatedMinutes": 20},
+            {"name": "Area of Squares and Rectangles", "description": "Simple area.", "estimatedMinutes": 20},
+            {"name": "Decimals (Tenths)", "description": "Introduction to decimals.", "estimatedMinutes": 20},
+            {"name": "Probability: Certain and Impossible", "description": "Simple chance ideas.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Letter Writing", "description": "Writing friendly letters.", "estimatedMinutes": 20},
+            {"name": "Vocabulary Building", "description": "New words in context.", "estimatedMinutes": 15},
+            {"name": "Reading and Discussion", "description": "Discussing a story.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 4",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Whole Numbers to 100 000", "description": "Place value, counting.", "estimatedMinutes": 20},
+            {"name": "Addition and Subtraction of Large Numbers", "description": "Column methods.", "estimatedMinutes": 25},
+            {"name": "Multiplication of 2-Digit Numbers", "description": "Long multiplication.", "estimatedMinutes": 25},
+            {"name": "Division of Whole Numbers", "description": "Short division.", "estimatedMinutes": 25},
+            {"name": "Fractions and Decimals", "description": "Comparing and ordering.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Parts of Speech", "description": "Review and practice.", "estimatedMinutes": 20},
+            {"name": "Comprehension: Main Ideas", "description": "Finding main ideas.", "estimatedMinutes": 20},
+            {"name": "The Paragraph", "description": "Organising ideas.", "estimatedMinutes": 20},
+            {"name": "Dictionary Skills", "description": "Using a dictionary.", "estimatedMinutes": 15}
+          ]
+        },
+        {
+          "name": "Basic Science and Technology",
+          "code": "BAS",
+          "topics": [
+            {"name": "The Digestive System", "description": "Path of food.", "estimatedMinutes": 25},
+            {"name": "Work and Energy", "description": "Forms of energy.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 4",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Ratios and Percentages", "description": "Basic ratio and percent.", "estimatedMinutes": 25},
+            {"name": "Money: Profit and Loss", "description": "Simple profit and loss.", "estimatedMinutes": 25},
+            {"name": "Averages", "description": "Finding the mean.", "estimatedMinutes": 20},
+            {"name": "Perimeter and Area", "description": "Formulas and problems.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Figures of Speech (Simple)", "description": "Similes and metaphors.", "estimatedMinutes": 20},
+            {"name": "Formal and Informal Expressions", "description": "Register differences.", "estimatedMinutes": 15},
+            {"name": "Comprehension: Inference", "description": "Understanding implied meaning.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 4",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Volume of Cuboids", "description": "Volume formula.", "estimatedMinutes": 20},
+            {"name": "Angles and Turns", "description": "Degrees and directions.", "estimatedMinutes": 20},
+            {"name": "Probability", "description": "Possible outcomes.", "estimatedMinutes": 20},
+            {"name": "Interpretation of Tables", "description": "Reading data tables.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Reported Speech (Simple)", "description": "Saying what someone said.", "estimatedMinutes": 25},
+            {"name": "Persuasive Writing", "description": "Convincing sentences.", "estimatedMinutes": 20},
+            {"name": "Book Report", "description": "Talking about a book.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 5",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Whole Numbers and Place Value", "description": "Millions place.", "estimatedMinutes": 20},
+            {"name": "Addition, Subtraction and Rounding", "description": "Estimation.", "estimatedMinutes": 25},
+            {"name": "Multiplication and Division of Large Numbers", "description": "Standard methods.", "estimatedMinutes": 25},
+            {"name": "Fractions and Mixed Numbers", "description": "Operations with fractions.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Clauses and Phrases", "description": "Simple clause structure.", "estimatedMinutes": 20},
+            {"name": "Comprehension: Context Clues", "description": "Word meanings in context.", "estimatedMinutes": 20},
+            {"name": "Summary (First Steps)", "description": "Condensing ideas.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "Basic Science and Technology",
+          "code": "BAS",
+          "topics": [
+            {"name": "The Circulatory System", "description": "Heart and blood.", "estimatedMinutes": 25},
+            {"name": "Motion and Forces", "description": "Pushes and pulls.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 5",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Percentages and Discounts", "description": "Finding percentages.", "estimatedMinutes": 25},
+            {"name": "Simple Interest", "description": "Saving money interest.", "estimatedMinutes": 25},
+            {"name": "Mensuration: Prisms and Cubes", "description": "Volume and surface area.", "estimatedMinutes": 25},
+            {"name": "Statistics: Averages", "description": "Mean, median, mode.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Complex Sentences (Basic)", "description": "Joining clauses.", "estimatedMinutes": 20},
+            {"name": "Formal Letter Writing", "description": "Request letters.", "estimatedMinutes": 20},
+            {"name": "Poetry: Rhythm and Rhyme", "description": "Reading poems.", "estimatedMinutes": 20}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 5",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Scale Drawing", "description": "Simple scale models.", "estimatedMinutes": 20},
+            {"name": "Converting Units", "description": "Length, mass, capacity.", "estimatedMinutes": 20},
+            {"name": "Charts, Pie Charts and Graphs", "description": "Reading and drawing graphs.", "estimatedMinutes": 25},
+            {"name": "Probability", "description": "Simple probability.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Punctuation: Complex Uses", "description": "Commas and quotation marks.", "estimatedMinutes": 20},
+            {"name": "Narrative Essay", "description": "Writing a narrative.", "estimatedMinutes": 25},
+            {"name": "Listening and Speaking Skills", "description": "Oral comprehension.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 6",
+      "term": "First Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Whole Numbers (Revision)", "description": "Place value to billions.", "estimatedMinutes": 20},
+            {"name": "HCF and LCM", "description": "Factors and multiples.", "estimatedMinutes": 25},
+            {"name": "Ratios and Proportions", "description": "Sharing in ratios.", "estimatedMinutes": 25},
+            {"name": "Fractions, Decimals and Percentages", "description": "Conversions and operations.", "estimatedMinutes": 25},
+            {"name": "Simple Equations", "description": "Solving for unknowns.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Parts of Speech (Revision)", "description": "Full review.", "estimatedMinutes": 20},
+            {"name": "Comprehension Strategies", "description": "All question types.", "estimatedMinutes": 20},
+            {"name": "Essay Types (Introduction)", "description": "Narrative, descriptive, expository.", "estimatedMinutes": 25}
+          ]
+        },
+        {
+          "name": "Basic Science and Technology",
+          "code": "BAS",
+          "topics": [
+            {"name": "Simple Machines (Review)", "description": "Levers, pulleys, inclined planes.", "estimatedMinutes": 25},
+            {"name": "Air and Combustion", "description": "Properties of air.", "estimatedMinutes": 20},
+            {"name": "Electricity and Electronics", "description": "Simple circuits.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 6",
+      "term": "Second Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Algebraic Expressions", "description": "Evaluating and simplifying.", "estimatedMinutes": 25},
+            {"name": "Geometry: Angles and Shapes", "description": "Angle properties.", "estimatedMinutes": 25},
+            {"name": "Area and Volume (Revision)", "description": "Mensuration review.", "estimatedMinutes": 25},
+            {"name": "Statistics: Data Handling", "description": "Collecting and presenting data.", "estimatedMinutes": 25},
+            {"name": "Probability", "description": "Introduction to chance.", "estimatedMinutes": 20}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Sentence Types", "description": "Statements, questions, commands.", "estimatedMinutes": 20},
+            {"name": "Summary and Paraphrase", "description": "Rephrasing ideas.", "estimatedMinutes": 20},
+            {"name": "Figures of Speech", "description": "Metaphor, simile, personification.", "estimatedMinutes": 20},
+            {"name": "Oral English: Stress", "description": "Word stress patterns.", "estimatedMinutes": 15}
+          ]
+        }
+      ]
+    },
+    {
+      "class": "Primary 6",
+      "term": "Third Term",
+      "subjects": [
+        {
+          "name": "Mathematics",
+          "code": "MTH",
+          "topics": [
+            {"name": "Financial Arithmetic", "description": "Simple interest and discounts.", "estimatedMinutes": 25},
+            {"name": "Bearings and Compass", "description": "Simple bearings.", "estimatedMinutes": 20},
+            {"name": "Revision for Placement", "description": "Mixed revision.", "estimatedMinutes": 30}
+          ]
+        },
+        {
+          "name": "English Language",
+          "code": "ENG",
+          "topics": [
+            {"name": "Comprehension (Intensive)", "description": "Practice and review.", "estimatedMinutes": 25},
+            {"name": "Essay Writing (Intensive)", "description": "Full essays.", "estimatedMinutes": 25},
+            {"name": "Revision for Placement", "description": "Mixed revision.", "estimatedMinutes": 25}
+          ]
+        }
+      ]
+    }
+  ]
+}
