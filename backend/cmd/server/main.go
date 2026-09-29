@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/learnquest/backend/internal/admin"
 	"github.com/learnquest/backend/internal/ai"
 	"github.com/learnquest/backend/internal/auth"
 	"github.com/learnquest/backend/internal/config"
@@ -20,6 +21,7 @@ import (
 	"github.com/learnquest/backend/internal/gamification"
 	"github.com/learnquest/backend/internal/knowledge"
 	"github.com/learnquest/backend/internal/lesson"
+	"github.com/learnquest/backend/internal/library"
 	"github.com/learnquest/backend/internal/middleware"
 	"github.com/learnquest/backend/internal/outbox"
 	"github.com/learnquest/backend/internal/question"
@@ -47,6 +49,15 @@ func main() {
 	if err := seed.Seed(db); err != nil {
 		log.Fatalf("seed: %v", err)
 	}
+	if err := seed.SeedLibraryNotes(db); err != nil {
+		log.Fatalf("seed library: %v", err)
+	}
+	if err := seed.SeedBookNotes(db); err != nil {
+		log.Fatalf("seed books: %v", err)
+	}
+	if err := admin.Ensure(db, cfg.AdminEmail); err != nil {
+		log.Fatalf("admin: %v", err)
+	}
 
 	aiSvc := ai.New(cfg, db)
 	aiHandler := ai.NewHandler(aiSvc)
@@ -55,7 +66,7 @@ func main() {
 	processor := &workers.QuizProcessor{DB: db, AI: aiSvc, Bus: bus}
 	bus.Subscribe(events.QuizCompleted, processor.HandleQuizCompleted)
 
-	authSvc := auth.NewService(db, cfg.JWTSecret, cfg.OTPSecret, cfg.JWTTTL)
+	authSvc := auth.NewService(db, cfg.JWTSecret, cfg.OTPSecret, cfg.JWTTTL, cfg.AdminEmail)
 	quizSvc := &quiz.Service{DB: db, Bus: bus}
 	curriculumHandler := &curriculum.Handler{DB: db}
 	lessonHandler := &lesson.Handler{DB: db}
@@ -64,6 +75,8 @@ func main() {
 	gamificationHandler := &gamification.Handler{DB: db}
 	recommendationHandler := &recommendation.Handler{DB: db}
 	studentHandler := &student.Handler{DB: db}
+	adminHandler := &admin.Handler{DB: db}
+	libraryHandler := &library.Handler{DB: db, IngestKey: cfg.IngestKey}
 
 	gin.SetMode(ginMode(cfg.AppEnv))
 	r := gin.New()
@@ -104,6 +117,7 @@ func main() {
 		authGroup := api.Group("", middleware.RequireAuth(cfg.JWTSecret))
 		authGroup.GET("/student/profile", studentHandler.GetProfile)
 		authGroup.PUT("/student/profile", studentHandler.UpdateProfile)
+		authGroup.GET("/library", libraryHandler.List)
 
 		authGroup.GET("/lessons/:id", lessonHandler.GetByID)
 		authGroup.GET("/topics/:topicId/lesson", lessonHandler.GetByTopic)
@@ -128,7 +142,18 @@ func main() {
 		authGroup.POST("/ai/analyze-working", aiHandler.AnalyzeWorking)
 		authGroup.POST("/ai/explain", aiHandler.Explain)
 		authGroup.POST("/ai/generate-practice", aiHandler.GeneratePractice)
+
+		adminGroup := api.Group("/admin", middleware.RequireAuth(cfg.JWTSecret), middleware.RequireAdmin())
+		adminGroup.GET("/overview", adminHandler.Overview)
+		adminGroup.GET("/users", adminHandler.Users)
+		adminGroup.DELETE("/users/:id", adminHandler.DeleteUser)
 	}
+
+	// Public, non-versioned endpoints used by scripts/textbook_fetcher
+	// (which reads the curriculum and writes generated notes back).
+	ingest := r.Group("/api")
+	ingest.GET("/curriculum", libraryHandler.CurriculumSync)
+	ingest.POST("/library/notes", libraryHandler.Ingest)
 
 	srv := &http.Server{
 		Addr:              ":" + cfg.Port,

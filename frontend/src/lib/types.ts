@@ -318,3 +318,56 @@ export interface AIEnvelope<T> {
   aiStatus: string
   error: string
 }
+
+export interface AdminRecentUser {
+  id: number
+  name: string
+  email: string
+  role: string
+  emailVerified: boolean
+  createdAt: string
+}
+
+export interface AdminOverview {
+  totalUsers: number
+  verifiedUsers: number
+  onboardedUsers: number
+  totalQuizzes: number
+  submittedQuizzes: number
+  totalAnswers: number
+  aiAnalyses: number
+  activeStudentsToday: number
+  avgScore: number
+  recentRegistrations: AdminRecentUser[]
+}
+
+export interface AdminUserRow {
+  id: number
+  name: string
+  email: string
+  role: string
+  emailVerified: boolean
+  onboarded: boolean
+  quizCount: number
+  submittedCount: number
+  avgScore: number
+  xp: number
+  masteredTopics: number
+  lastActiveAt?: string
+  createdAt: string
+}
+
+export interface LibraryNote {
+  id: number
+  subject: string
+  topic: string
+  title: string
+  content: string
+  createdAt: string
+}
+
+export interface LibrarySubject {
+  name: string
+  notes: LibraryNote[]
+  count: number
+}

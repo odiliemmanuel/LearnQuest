@@ -23,14 +23,15 @@ import (
 )
 
 type Service struct {
-	DB        *gorm.DB
-	Secret    string
-	OTPSecret string
-	TTL       time.Duration
+	DB         *gorm.DB
+	Secret     string
+	OTPSecret  string
+	TTL        time.Duration
+	AdminEmail string
 }
 
-func NewService(db *gorm.DB, secret, otpSecret string, ttl time.Duration) *Service {
-	return &Service{DB: db, Secret: secret, OTPSecret: otpSecret, TTL: ttl}
+func NewService(db *gorm.DB, secret, otpSecret string, ttl time.Duration, adminEmail string) *Service {
+	return &Service{DB: db, Secret: secret, OTPSecret: otpSecret, TTL: ttl, AdminEmail: adminEmail}
 }
 
 type RegisterInput struct {
@@ -109,6 +110,9 @@ func (s *Service) Register(c *gin.Context) {
 		Email:        email,
 		PasswordHash: string(hash),
 		Role:         models.RoleStudent,
+	}
+	if s.AdminEmail != "" && strings.EqualFold(s.AdminEmail, email) {
+		user.Role = models.RoleAdmin
 	}
 	tx := s.DB.Begin()
 	if err := tx.Create(&user).Error; err != nil {

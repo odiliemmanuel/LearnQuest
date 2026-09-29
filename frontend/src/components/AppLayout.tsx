@@ -5,20 +5,22 @@ import { api } from '../lib/api'
 import type { GamificationSummary } from '../lib/types'
 import { ThemeToggle } from './ThemeToggle'
 
-const navItems = [
-  { to: '/dashboard', label: 'Dashboard' },
-  { to: '/subjects', label: 'Subjects' },
-  { to: '/recovery', label: 'Recovery' },
-  { to: '/progress', label: 'Progress' },
-  { to: '/challenges', label: 'Challenges' },
-  { to: '/profile', label: 'Profile' },
-]
-
 export function AppLayout() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
   const [summary, setSummary] = useState<GamificationSummary | null>(null)
   const [open, setOpen] = useState(false)
+
+  const navItems = [
+    { to: '/dashboard', label: 'Dashboard' },
+    { to: '/subjects', label: 'Subjects' },
+    { to: '/library', label: 'Library' },
+    { to: '/recovery', label: 'Recovery' },
+    { to: '/progress', label: 'Progress' },
+    { to: '/challenges', label: 'Challenges' },
+    { to: '/profile', label: 'Profile' },
+    ...(user?.role === 'ADMIN' ? [{ to: '/admin', label: 'Admin' }] : []),
+  ]
 
   useEffect(() => {
     api

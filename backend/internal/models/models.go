@@ -1,5 +1,6 @@
 package models
 
+import "gorm.io/gorm"
 import "time"
 
 type Role string
@@ -12,11 +13,12 @@ const (
 type User struct {
 	ID             uint            `gorm:"primarykey" json:"id"`
 	Name           string          `gorm:"size:100;not null" json:"name"`
-	Email          string          `gorm:"size:150;uniqueIndex;not null" json:"email"`
+	Email          string          `gorm:"size:150;index:idx_users_email_deleted,priority:1;not null" json:"email"`
 	PasswordHash   string          `gorm:"size:255;not null" json:"-"`
 	Role           Role            `gorm:"size:20;default:STUDENT" json:"role"`
 	EmailVerified  bool            `gorm:"default:false" json:"emailVerified"`
 	StudentProfile *StudentProfile `json:"profile,omitempty"`
+	DeletedAt      gorm.DeletedAt  `gorm:"index:idx_users_email_deleted,priority:2" json:"-"`
 	CreatedAt      time.Time       `json:"createdAt"`
 	UpdatedAt      time.Time       `json:"updatedAt"`
 }
@@ -251,6 +253,7 @@ type StudentBadge struct {
 	ID        uint      `gorm:"primarykey" json:"id"`
 	StudentID uint      `gorm:"uniqueIndex:uidx_std_badge;not null" json:"studentId"`
 	BadgeID   uint      `gorm:"uniqueIndex:uidx_std_badge;not null" json:"badgeId"`
+	Badge     *Badge    `json:"badge,omitempty"`
 	EarnedAt  time.Time `json:"earnedAt"`
 }
 
@@ -293,4 +296,18 @@ type AIAnalysis struct {
 	ResponseJSON string    `gorm:"type:text" json:"-"`
 	Error        string    `gorm:"type:text" json:"error,omitempty"`
 	CreatedAt    time.Time `json:"createdAt"`
+}
+
+// LibraryNote is a condensed, original study note for one subject/topic,
+// written for LearnQuest (never copied from an existing textbook). Read
+// entirely inside the app. Populated by scripts/textbook_fetcher, which
+// asks Gemini to write a note for any topic that doesn't have one yet.
+type LibraryNote struct {
+	ID        uint      `gorm:"primarykey" json:"id"`
+	Subject   string    `gorm:"size:100;uniqueIndex:idx_subject_topic;not null" json:"subject"`
+	Topic     string    `gorm:"size:150;uniqueIndex:idx_subject_topic;not null" json:"topic"`
+	Title     string    `gorm:"size:200;not null" json:"title"`
+	Content   string    `gorm:"type:text;not null" json:"content"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedAt time.Time `json:"updatedAt"`
 }

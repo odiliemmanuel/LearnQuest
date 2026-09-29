@@ -9,8 +9,10 @@ An adaptive learning platform for students. LearnQuest combines a Go API backend
 - **Knowledge & progress tracking** — per-topic mastery, knowledge map and adaptive recovery suggestions.
 - **Gamification** — points, badges and challenges to keep learners engaged.
 - **AI assistance** — mistake analysis, working-out review, concept explanations and generated practice questions (OpenAI, with a mock mode for development).
+- **Library / textbook** — original, condensed study notes for every curriculum topic, written for LearnQuest and read entirely in-app (`scripts/textbook_fetcher` generates them with Gemini and posts them via a secret-key ingest endpoint).
 - **Email verification** — OTP signup flow with a transactional outbox; RabbitMQ transports events to a dedicated notification service that delivers them over SMTP.
 - **Session management** — JWT-based auth persisted across refreshes; redirection to sign-in only when a session expires or a new device is used.
+- **Admin dashboard** — owner-only overview, per-student stats and search, and soft-delete for accounts (data and history are preserved in the database).
 - **Light & dark mode** — persisted theme with dark-mode-aware components.
 
 ## Tech Stack
@@ -103,9 +105,10 @@ Open `http://localhost:5173`, register, verify your email using the OTP, and lan
 ## Repository Layout
 
 ```
-backend/               Go API server (auth, curriculum, quiz, AI, gamification, ...)
+backend/               Go API server (auth, curriculum, quiz, AI, gamification, library, admin, ...)
 frontend/              React + TypeScript single-page app
 notification-service/  Go worker that delivers emails over SMTP
+scripts/textbook_fetcher/  Python script that generates library study notes via Gemini
 docs/                  Architecture notes
 docker-compose.yml     RabbitMQ for local development
 ```

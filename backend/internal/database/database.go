@@ -35,7 +35,7 @@ func Connect(databaseURL string) (*gorm.DB, error) {
 }
 
 func Migrate(db *gorm.DB) error {
-	return db.AutoMigrate(
+	if err := db.AutoMigrate(
 		&models.User{},
 		&models.EmailVerification{},
 		&models.OutboxEvent{},
@@ -60,7 +60,15 @@ func Migrate(db *gorm.DB) error {
 		&models.StudentBadge{},
 		&models.DailyActivity{},
 		&models.Challenge{},
-	)
+		&models.LibraryNote{},
+	); err != nil {
+		return err
+	}
+	// Replace the pre-soft-delete unique email index with the composite
+	// (email, deleted_at) index so a soft-deleted account's email can be
+	// registered again. AutoMigrate creates the new index; the old one is
+	// dropped here if it still exists.
+	return db.Exec(`DROP INDEX IF EXISTS idx_users_email`).Error
 }
 
 func Count(db *gorm.DB, model any) (int64, error) {

@@ -23,6 +23,8 @@ type Config struct {
 	OpenAIModel string
 	AITimeout   time.Duration
 	AIMock      bool
+	AdminEmail  string
+	IngestKey   string
 	CORSOrigins []string
 }
 
@@ -43,6 +45,8 @@ func Load() (*Config, error) {
 		OpenAIModel: getEnv("OPENAI_MODEL", "gpt-4o-mini"),
 		AITimeout:   time.Duration(getEnvInt("AI_TIMEOUT_SECONDS", 20)) * time.Second,
 		AIMock:      os.Getenv("OPENAI_API_KEY") == "",
+		AdminEmail:  os.Getenv("ADMIN_EMAIL"),
+		IngestKey:   getEnv("INGEST_SECRET", "dev-ingest-secret-change-me"),
 		CORSOrigins: []string{"http://localhost:5173", "http://127.0.0.1:5173"},
 	}
 

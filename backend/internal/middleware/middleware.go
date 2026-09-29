@@ -8,6 +8,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang-jwt/jwt/v5"
 	"github.com/google/uuid"
+	"github.com/learnquest/backend/internal/models"
 	"github.com/learnquest/backend/internal/response"
 )
 
@@ -95,6 +96,19 @@ func OptionalAuth(secret string) gin.HandlerFunc {
 		}
 		c.Set(CtxUserID, claims.UserID)
 		c.Set(CtxRole, claims.Role)
+		c.Next()
+	}
+}
+
+// RequireAdmin rejects requests whose authenticated role is not ADMIN.
+// It must run after RequireAuth so the role claim is present.
+func RequireAdmin() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		if Role(c) != string(models.RoleAdmin) {
+			response.Forbidden(c, "Admin access required.")
+			c.Abort()
+			return
+		}
 		c.Next()
 	}
 }
