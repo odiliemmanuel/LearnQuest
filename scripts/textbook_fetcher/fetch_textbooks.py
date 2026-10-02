@@ -64,6 +64,12 @@ RETRY_BACKOFF_SECONDS = float(os.getenv("RETRY_BACKOFF_SECONDS", "20"))
 STATE_FILE = Path(__file__).parent / "processed_topics.json"
 
 
+class DailyQuotaExhausted(Exception):
+    """The free tier's per-day request cap is spent. Retrying won't help
+    until the quota resets, so the pass should stop rather than grind
+    through every remaining topic burning a minute of backoff on each."""
+
+
 def fail(message: str) -> None:
     print(f"\n{message}\n", file=sys.stderr)
     sys.exit(1)
@@ -156,6 +162,14 @@ def extract_json_object(text: str) -> dict:
         return {}
 
 
+def is_daily_quota_exhausted(msg: str) -> bool:
+    """True when a 429 is Google's per-day free-tier cap (not a per-minute
+    burst limit). The daily error names the per-day quota id explicitly."""
+    if "RESOURCE_EXHAUSTED" not in msg and "429" not in msg:
+        return False
+    return "GenerateRequestsPerDay" in msg or "per day" in msg.lower() or "quotaValue" in msg
+
+
 def ask_gemini(subject: str, topic: str) -> dict:
     config_kwargs = {}
     if USE_GROUNDING:
@@ -172,10 +186,22 @@ def ask_gemini(subject: str, topic: str) -> dict:
             return extract_json_object(response.text)
         except Exception as e:
             last_error = e
-            is_quota_error = "RESOURCE_EXHAUSTED" in str(e) or "429" in str(e)
-            if is_quota_error and attempt < MAX_RETRIES:
+            msg = str(e)
+            # The free tier enforces a per-day request cap per model. When
+            # that's spent, no amount of backoff helps — it only resets with
+            # a new day — so bail out of the whole pass immediately.
+            if is_daily_quota_exhausted(msg):
+                raise DailyQuotaExhausted(msg)
+            # 429 (per-minute burst) and 503 (model overloaded) are transient,
+            # so back off and retry rather than dropping the topic. Anything
+            # else is a real error — let it propagate.
+            is_transient = any(
+                marker in msg
+                for marker in ("RESOURCE_EXHAUSTED", "429", "UNAVAILABLE", "503", "overloaded")
+            )
+            if is_transient and attempt < MAX_RETRIES:
                 wait = RETRY_BACKOFF_SECONDS * attempt
-                print(f"    Rate limited — waiting {wait}s before retry {attempt}/{MAX_RETRIES - 1}...")
+                print(f"    Transient error — waiting {wait}s before retry {attempt}/{MAX_RETRIES - 1}...")
                 time.sleep(wait)
                 continue
             raise last_error
@@ -187,6 +213,8 @@ def process_topic(subject: str, topic: str) -> bool:
     print(f"  Writing notes: {subject} - {topic}")
     try:
         result = ask_gemini(subject, topic)
+    except DailyQuotaExhausted:
+        raise  # out-of-quota is not a per-topic failure; stop the whole pass
     except Exception as e:  # Gemini errors shouldn't kill the whole run
         print(f"    Gemini call failed: {e}")
         return False
@@ -212,6 +240,7 @@ def run_once() -> None:
 
     total_added = 0
     total_failed = 0
+    stopped_for_quota = False
     for subject in curriculum.get("subjects", []):
         subject_name = subject["name"]
         for topic in subject.get("topics", []):
@@ -221,15 +250,30 @@ def run_once() -> None:
             # Only mark as processed on real success — a topic that failed
             # (quota error, bad response, etc.) needs to be retried on the
             # next run, not silently skipped forever.
-            if process_topic(subject_name, topic):
+            try:
+                ok = process_topic(subject_name, topic)
+            except DailyQuotaExhausted:
+                stopped_for_quota = True
+                break
+            if ok:
                 total_added += 1
                 processed.add(key)
                 save_processed(processed)  # persist after every success, not just at the end
             else:
                 total_failed += 1
             time.sleep(REQUEST_DELAY_SECONDS)
+        if stopped_for_quota:
+            break
 
     print(f"\nPass complete - {total_added} new notes added, {total_failed} failed (will retry next run), {len(processed)} topics covered in total.")
+    if stopped_for_quota:
+        remaining = sum(len(s.get("topics", [])) for s in curriculum.get("subjects", [])) - len(processed)
+        print(
+            f"\nStopped early: the Gemini free tier's daily request cap is used up "
+            f"(model {GEMINI_MODEL}). {max(remaining, 0)} topics still to write — they are "
+            f"NOT marked processed, so re-running after the quota resets (usually within "
+            f"24h) picks up exactly where this stopped. Nothing is lost."
+        )
 
 
 def main() -> None:

@@ -66,16 +66,28 @@ API calls on topics already covered.
 
 ## A couple of things worth knowing
 
+- **There's a daily request cap on the free tier** — 500 requests/day/model/project.
+  A full curriculum pass is ~680 topics, so expect to need a second day to finish.
+  When the cap is hit the script stops immediately (retrying a spent daily quota
+  can't help until it resets) and tells you how many topics are left. Unfinished
+  topics are never marked processed, so just re-run — it picks up exactly where
+  it stopped. Quota resets on a rolling 24h basis, so it may free up sooner.
+- **You can get a second daily bucket by switching models.** The cap is
+  per-model, so if `GEMINI_MODEL` points at a different model that isn't
+  overloaded, you get another 500 requests that day. Check which models are
+  responding before assuming you're blocked.
 - **Every topic gets covered.** Since this generates content instead of
   searching for a pre-existing resource, there's no "nothing found for
   this topic" case the way there would be with external links — that's
   the main reason this approach replaced the earlier link-finding version.
+- **429 vs 503 are handled differently.** A per-minute burst (429) or a
+  momentarily overloaded model (503) is retried with backoff. The daily cap
+  is detected and stops the pass instead, since backoff can't clear it.
 - **429 errors on the very first topic usually mean grounding was on.**
   Make sure `USE_GROUNDING` is `false` (or unset) in `.env` unless you have
   billing enabled — see above. If you're still hitting 429s with grounding
-  off, that's a genuine rate limit; the script retries automatically
-  (`MAX_RETRIES` / `RETRY_BACKOFF_SECONDS` in `.env`) and moves on to the
-  next topic if a given one keeps failing, rather than getting stuck.
+  off, that's the free-tier cap; the script retries briefly, then stops the
+  pass rather than looping.
 - **Spot-check the output the first time.** The prompt asks for accuracy
   and originality, but it's still a model — skim a few generated notes
   against what you already know before trusting the full set blindly.
