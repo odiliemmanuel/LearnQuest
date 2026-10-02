@@ -126,6 +126,27 @@ func RecomputeSubject(ctx context.Context, db *gorm.DB, studentID, subjectID uin
 	return db.WithContext(ctx).Save(&prog).Error
 }
 
+// distinctRefs collects the distinct subject/class/term ids across topics so
+// they can be fetched in one query each rather than one per topic.
+func distinctRefs(topics []models.Topic) (subjectIDs, classIDs, termIDs []uint) {
+	seenSubject, seenClass, seenTerm := map[uint]bool{}, map[uint]bool{}, map[uint]bool{}
+	for _, t := range topics {
+		if !seenSubject[t.SubjectID] {
+			seenSubject[t.SubjectID] = true
+			subjectIDs = append(subjectIDs, t.SubjectID)
+		}
+		if !seenClass[t.ClassLevelID] {
+			seenClass[t.ClassLevelID] = true
+			classIDs = append(classIDs, t.ClassLevelID)
+		}
+		if !seenTerm[t.TermID] {
+			seenTerm[t.TermID] = true
+			termIDs = append(termIDs, t.TermID)
+		}
+	}
+	return subjectIDs, classIDs, termIDs
+}
+
 func round2(v float64) float64 {
 	return float64(int(v*10000)) / 10000
 }

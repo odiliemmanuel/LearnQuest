@@ -2,7 +2,7 @@ package quiz
 
 import (
 	"encoding/json"
-	"errors"
+	"log"
 	"math/rand"
 	"strconv"
 	"time"
@@ -15,6 +15,7 @@ import (
 	"github.com/learnquest/backend/internal/question"
 	"github.com/learnquest/backend/internal/response"
 	"gorm.io/gorm"
+	"gorm.io/gorm/clause"
 )
 
 const DefaultQuestionCount = 10
@@ -171,6 +172,10 @@ func (s *Service) Submit(c *gin.Context) {
 	tx := s.DB.Begin()
 	scoreMarks := 0
 	correctCount := 0
+	// Grade in memory first, then write all answers in a single batched
+	// INSERT (and all AI rows in a second) instead of one INSERT per answer.
+	studentAnswers := make([]models.StudentAnswer, 0, len(in.Answers))
+	needsAnalysis := make([]bool, 0, len(in.Answers))
 	for _, ans := range in.Answers {
 		q, ok := qmap[ans.QuestionID]
 		if !ok {
@@ -183,7 +188,7 @@ func (s *Service) Submit(c *gin.Context) {
 			correctCount++
 		}
 		scoreMarks += marks
-		sa := models.StudentAnswer{
+		studentAnswers = append(studentAnswers, models.StudentAnswer{
 			QuizID:           quiz.ID,
 			StudentID:        userID,
 			QuestionID:       q.ID,
@@ -192,22 +197,35 @@ func (s *Service) Submit(c *gin.Context) {
 			Working:          ans.Working,
 			IsCorrect:        ok,
 			ReceivedMarks:    marks,
+		})
+		// If wrong, a PENDING AI row is created so background workers can
+		// explain it (needs the answer's ID, hence after the insert).
+		needsAnalysis = append(needsAnalysis, !ok)
+	}
+	if err := tx.CreateInBatches(studentAnswers, 50).Error; err != nil {
+		tx.Rollback()
+		response.Internal(c, "Could not save answers.")
+		return
+	}
+	analyses := make([]models.AIAnalysis, 0, len(studentAnswers))
+	for i, need := range needsAnalysis {
+		if !need {
+			continue
 		}
-		if err := tx.Create(&sa).Error; err != nil {
+		analyses = append(analyses, models.AIAnalysis{
+			StudentID:  userID,
+			QuestionID: studentAnswers[i].QuestionID,
+			AnswerID:   &studentAnswers[i].ID,
+			QuizID:     &quiz.ID,
+			Kind:       "MISTAKE",
+			Status:     "PENDING",
+		})
+	}
+	if len(analyses) > 0 {
+		if err := tx.CreateInBatches(analyses, 50).Error; err != nil {
 			tx.Rollback()
 			response.Internal(c, "Could not save answers.")
 			return
-		}
-		// If wrong, create a PENDING AI row so background workers can explain it.
-		if !ok {
-			tx.Create(&models.AIAnalysis{
-				StudentID:  userID,
-				QuestionID: q.ID,
-				AnswerID:   &sa.ID,
-				QuizID:     &quiz.ID,
-				Kind:       "MISTAKE",
-				Status:     "PENDING",
-			})
 		}
 	}
 
@@ -372,12 +390,14 @@ func (s *Service) recordActivity(studentID uint, count int) {
 		return
 	}
 	today := time.Now().Truncate(24 * time.Hour)
-	var act models.DailyActivity
-	err := s.DB.Where("student_id = ? AND date = ?", studentID, today).First(&act).Error
-	if errors.Is(err, gorm.ErrRecordNotFound) {
-		s.DB.Create(&models.DailyActivity{StudentID: studentID, Date: today, QuestionCount: count})
-		return
+	// Atomic upsert keyed on (student_id, date): previously this read-then-
+	// create pattern could silently fail on the unique constraint, and two
+	// concurrent submissions could both miss and race.
+	err := s.DB.Clauses(clause.OnConflict{
+		Columns:   []clause.Column{{Name: "student_id"}, {Name: "date"}},
+		DoUpdates: clause.Assignments(map[string]any{"question_count": gorm.Expr("daily_activities.question_count + ?", count)}),
+	}).Create(&models.DailyActivity{StudentID: studentID, Date: today, QuestionCount: count}).Error
+	if err != nil {
+		log.Printf("recordActivity: %v", err)
 	}
-	act.QuestionCount += count
-	s.DB.Save(&act)
 }

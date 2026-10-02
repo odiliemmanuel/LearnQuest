@@ -22,22 +22,23 @@ type hint = models.XPTransaction
 func AwardQuizXP(ctx context.Context, db *gorm.DB, studentID, quizID uint, correct int, perfect bool, recovery bool, passed bool) error {
 	now := time.Now()
 	tx := db.WithContext(ctx).Begin()
+
+	// Build every XP row first, then insert them in a single batched
+	// statement instead of one INSERT per correct answer.
+	rows := make([]models.XPTransaction, 0, correct+3)
 	for i := 0; i < correct; i++ {
-		rec := models.XPTransaction{StudentID: studentID, Amount: XPPerCorrect, Reason: "Correct answer", Source: "QUIZ", RefID: quizID, CreatedAt: now}
-		if err := tx.Create(&rec).Error; err != nil {
-			tx.Rollback()
-			return err
-		}
+		rows = append(rows, models.XPTransaction{StudentID: studentID, Amount: XPPerCorrect, Reason: "Correct answer", Source: "QUIZ", RefID: quizID, CreatedAt: now})
 	}
-	if err := tx.Create(&models.XPTransaction{StudentID: studentID, Amount: XPQuizCompletion, Reason: "Quiz completed", Source: "QUIZ", RefID: quizID, CreatedAt: now}).Error; err != nil {
-		tx.Rollback()
-		return err
-	}
+	rows = append(rows, models.XPTransaction{StudentID: studentID, Amount: XPQuizCompletion, Reason: "Quiz completed", Source: "QUIZ", RefID: quizID, CreatedAt: now})
 	if perfect {
-		tx.Create(&models.XPTransaction{StudentID: studentID, Amount: XPPerfectBonus, Reason: "Perfect quiz", Source: "QUIZ", RefID: quizID, CreatedAt: now})
+		rows = append(rows, models.XPTransaction{StudentID: studentID, Amount: XPPerfectBonus, Reason: "Perfect quiz", Source: "QUIZ", RefID: quizID, CreatedAt: now})
 	}
 	if recovery && passed {
-		tx.Create(&models.XPTransaction{StudentID: studentID, Amount: XPRecoveryBonus, Reason: "Recovery mission passed", Source: "QUIZ", RefID: quizID, CreatedAt: now})
+		rows = append(rows, models.XPTransaction{StudentID: studentID, Amount: XPRecoveryBonus, Reason: "Recovery mission passed", Source: "QUIZ", RefID: quizID, CreatedAt: now})
+	}
+	if err := tx.CreateInBatches(rows, 50).Error; err != nil {
+		tx.Rollback()
+		return err
 	}
 	return tx.Commit().Error
 }

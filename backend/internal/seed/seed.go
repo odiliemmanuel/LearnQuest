@@ -451,19 +451,37 @@ func SeedBookNotes(db *gorm.DB) error {
 		if subject == "" {
 			subject = f.Book
 		}
+		topics := make([]string, 0, len(f.Chapters))
+		for _, ch := range f.Chapters {
+			topics = append(topics, fmt.Sprintf("Chapter %s", ch.Chapter))
+		}
+		// This runs on every boot, so resolve which chapters already exist in
+		// one query instead of a First() per chapter.
+		var existing []models.LibraryNote
+		if err := db.Select("topic").Where("subject = ? AND topic IN ?", subject, topics).Find(&existing).Error; err != nil {
+			return err
+		}
+		seen := make(map[string]bool, len(existing))
+		for _, e := range existing {
+			seen[e.Topic] = true
+		}
+		var missing []models.LibraryNote
 		for _, ch := range f.Chapters {
 			topic := fmt.Sprintf("Chapter %s", ch.Chapter)
-			title := fmt.Sprintf("%s — %s", f.Book, topic)
-			var existing models.LibraryNote
-			err := db.Where("subject = ? AND topic = ?", subject, topic).First(&existing).Error
-			if err == nil {
+			if seen[topic] {
 				continue
 			}
-			if err := db.Create(&models.LibraryNote{
-				Subject: subject, Topic: topic, Title: title, Content: ch.Content,
-			}).Error; err != nil {
-				return fmt.Errorf("seed: book %s chapter %s: %w", f.Book, ch.Chapter, err)
-			}
+			missing = append(missing, models.LibraryNote{
+				Subject: subject, Topic: topic,
+				Title:   fmt.Sprintf("%s — %s", f.Book, topic),
+				Content: ch.Content,
+			})
+		}
+		if len(missing) == 0 {
+			continue
+		}
+		if err := db.CreateInBatches(missing, 25).Error; err != nil {
+			return fmt.Errorf("seed: book %s: %w", f.Book, err)
 		}
 	}
 	return nil
@@ -498,15 +516,43 @@ WAEC/NECO tip: if a question asks you to prove something is alive, don't rely on
 		},
 	}
 
+	// Runs on every boot: check which notes already exist in one query, then
+	// insert only the missing ones in a single batch.
+	var existing []models.LibraryNote
+	var subjects, topics []string
 	for _, n := range notes {
-		var existing models.LibraryNote
-		err := db.Where("subject = ? AND topic = ?", n.Subject, n.Topic).First(&existing).Error
-		if err == nil {
+		subjects = append(subjects, n.Subject)
+		topics = append(topics, n.Topic)
+	}
+	if err := db.Select("subject", "topic").
+		Where("(subject, topic) IN ?", pairSets(subjects, topics)).
+		Find(&existing).Error; err != nil {
+		return err
+	}
+	seen := make(map[string]bool, len(existing))
+	for _, e := range existing {
+		seen[e.Subject+"\x00"+e.Topic] = true
+	}
+	var missing []models.LibraryNote
+	for _, n := range notes {
+		if seen[n.Subject+"\x00"+n.Topic] {
 			continue
 		}
-		if err := db.Create(&n).Error; err != nil {
+		missing = append(missing, n)
+	}
+	if len(missing) > 0 {
+		if err := db.CreateInBatches(missing, len(missing)).Error; err != nil {
 			return err
 		}
 	}
 	return nil
+}
+
+// pairSets zips two slices into the [][]any form GORM's row-value IN needs.
+func pairSets(a, b []string) [][]any {
+	out := make([][]any, 0, len(a))
+	for i := range a {
+		out = append(out, []any{a[i], b[i]})
+	}
+	return out
 }

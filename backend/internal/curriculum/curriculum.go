@@ -113,25 +113,58 @@ func (h *Handler) Topics(c *gin.Context) {
 		return
 	}
 
+	// Resolve the per-topic flags in three set-based queries rather than
+	// querying per topic, which made this 3N+1 queries for a class's topics.
+	topicIDs := make([]uint, 0, len(topics))
+	for i := range topics {
+		topicIDs = append(topicIDs, topics[i].ID)
+	}
+
+	hasLesson := topicSetCounts(h.DB, &models.Lesson{}, topicIDs)
+	hasQuestions := topicSetCounts(h.DB, &models.Question{}, topicIDs)
+
+	masteryByTopic := map[uint]models.KnowledgeState{}
+	if userID, ok := middleware.UserID(c); ok && len(topicIDs) > 0 {
+		var states []models.KnowledgeState
+		if err := h.DB.Where("student_id = ? AND topic_id IN ?", userID, topicIDs).Find(&states).Error; err == nil {
+			for _, ks := range states {
+				masteryByTopic[ks.TopicID] = ks
+			}
+		}
+	}
+
 	views := make([]TopicView, 0, len(topics))
 	for i := range topics {
 		view := TopicView{Topic: topics[i]}
-		var lessonCount, questionCount int64
-		h.DB.Model(&models.Lesson{}).Where("topic_id = ?", topics[i].ID).Count(&lessonCount)
-		h.DB.Model(&models.Question{}).Where("topic_id = ?", topics[i].ID).Count(&questionCount)
-		view.HasLesson = lessonCount > 0
-		view.HasQuestions = questionCount > 0
-		if userID, ok := middleware.UserID(c); ok {
-			var ks models.KnowledgeState
-			h.DB.Where("student_id = ? AND topic_id = ?", userID, topics[i].ID).First(&ks)
-			if ks.ID != 0 {
-				view.Mastery = ks.Mastery
-				view.State = ks.State
-			}
+		view.HasLesson = hasLesson[topics[i].ID]
+		view.HasQuestions = hasQuestions[topics[i].ID]
+		if ks, ok := masteryByTopic[topics[i].ID]; ok {
+			view.Mastery = ks.Mastery
+			view.State = ks.State
 		}
 		views = append(views, view)
 	}
 	response.OK(c, views)
+}
+
+// topicSetCounts returns the set of topic_ids (from topicIDs) that have at
+// least one row in the given model, using a single grouped query.
+func topicSetCounts(db *gorm.DB, model any, topicIDs []uint) map[uint]bool {
+	present := map[uint]bool{}
+	if len(topicIDs) == 0 {
+		return present
+	}
+	var rows []struct {
+		TopicID uint
+	}
+	db.Model(model).
+		Select("DISTINCT topic_id").
+		Where("topic_id IN ?", topicIDs).
+		Scan(&rows)
+	for _, r := range rows {
+		present[r.TopicID] = true
+	}
+	return present
 }
 
 func (h *Handler) TopicDetail(c *gin.Context) {

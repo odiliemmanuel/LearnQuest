@@ -259,8 +259,8 @@ type StudentBadge struct {
 
 type DailyActivity struct {
 	ID            uint      `gorm:"primarykey" json:"id"`
-	StudentID     uint      `gorm:"uniqueIndex:uidx_std_date;not null" json:"studentId"`
-	Date          time.Time `json:"date"`
+	StudentID     uint      `gorm:"uniqueIndex:uidx_std_date,priority:1;not null" json:"studentId"`
+	Date          time.Time `gorm:"uniqueIndex:uidx_std_date,priority:2" json:"date"`
 	QuestionCount int       `json:"questionCount"`
 }
 

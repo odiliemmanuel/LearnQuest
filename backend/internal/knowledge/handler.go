@@ -57,6 +57,38 @@ func (h *Handler) KnowledgeMap(c *gin.Context) {
 		topicByID[t.ID] = t
 	}
 
+	// Resolve subject/class/term names with three set-based queries instead
+	// of one query per topic (this was ~4N queries for the knowledge map).
+	subjectIDs, classIDs, termIDs := distinctRefs(topics)
+	subjectByID := map[uint]models.Subject{}
+	classNameByID := map[uint]string{}
+	termNameByID := map[uint]string{}
+
+	if len(subjectIDs) > 0 {
+		var subs []models.Subject
+		if err := h.DB.Where("id IN ?", subjectIDs).Find(&subs).Error; err == nil {
+			for _, s := range subs {
+				subjectByID[s.ID] = s
+			}
+		}
+	}
+	if len(classIDs) > 0 {
+		var cls []models.ClassLevel
+		if err := h.DB.Where("id IN ?", classIDs).Find(&cls).Error; err == nil {
+			for _, cl := range cls {
+				classNameByID[cl.ID] = cl.Name
+			}
+		}
+	}
+	if len(termIDs) > 0 {
+		var terms []models.Term
+		if err := h.DB.Where("id IN ?", termIDs).Find(&terms).Error; err == nil {
+			for _, tm := range terms {
+				termNameByID[tm.ID] = tm.Name
+			}
+		}
+	}
+
 	// Only include subjects the student has any state in, so the map is focused.
 	subjects := map[uint]*SubjectGroup{}
 	var order []uint
@@ -67,24 +99,14 @@ func (h *Handler) KnowledgeMap(c *gin.Context) {
 		}
 		g, ok := subjects[topic.SubjectID]
 		if !ok {
-			var s models.Subject
-			h.DB.First(&s, topic.SubjectID)
-			g = &SubjectGroup{Subject: s}
+			g = &SubjectGroup{Subject: subjectByID[topic.SubjectID]}
 			subjects[topic.SubjectID] = g
 			order = append(order, topic.SubjectID)
 		}
-		var className, termName string
-		var cl models.ClassLevel
-		var tm models.Term
-		if h.DB.First(&cl, topic.ClassLevelID).Error == nil {
-			className = cl.Name
-		}
-		if h.DB.First(&tm, topic.TermID).Error == nil {
-			termName = tm.Name
-		}
 		g.Topics = append(g.Topics, TopicEntry{
 			ID: topic.ID, Name: topic.Name, State: k.State, Mastery: round2(k.Mastery),
-			Attempts: k.Attempts, Correct: k.CorrectCount, ClassName: className, TermName: termName,
+			Attempts: k.Attempts, Correct: k.CorrectCount,
+			ClassName: classNameByID[topic.ClassLevelID], TermName: termNameByID[topic.TermID],
 		})
 	}
 	for _, id := range order {

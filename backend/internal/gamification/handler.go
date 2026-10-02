@@ -1,6 +1,8 @@
 package gamification
 
 import (
+	"log"
+
 	"github.com/gin-gonic/gin"
 	"github.com/learnquest/backend/internal/middleware"
 	"github.com/learnquest/backend/internal/models"
@@ -65,13 +67,25 @@ func (h *Handler) Challenges(c *gin.Context) {
 
 	var challenges []models.Challenge
 	h.DB.Where("active = ?", true).Order("id asc").Find(&challenges)
+
+	// One aggregate per distinct metric and one query for the student's
+	// challenge rows, instead of two-plus queries per challenge.
+	progressForMetric := progressByMetric(ctx, h.DB, userID, challenges)
+	existing, err := loadStudentChallenges(ctx, h.DB, userID)
+	if err != nil {
+		// Surface it rather than silently reporting every challenge as
+		// unstarted — that is what hid a missing student_challenges table.
+		log.Printf("gamification: load student challenges: %v", err)
+		existing = nil
+	}
+
 	rows := make([]ChallengeView, 0, len(challenges))
 	for _, ch := range challenges {
-		progress := challengeProgress(ctx, h.DB, userID, ch)
-		var sc models.StudentChallenge
-		h.DB.Where("student_id = ? AND challenge_id = ?", userID, ch.ID).First(&sc)
-		completed := sc.Completed
-		rows = append(rows, ChallengeView{Challenge: ch, Progress: progress, Completed: completed})
+		rows = append(rows, ChallengeView{
+			Challenge: ch,
+			Progress:  progressForMetric[ch.Metric],
+			Completed: existing[ch.ID].Completed,
+		})
 	}
 	response.OK(c, rows)
 }
