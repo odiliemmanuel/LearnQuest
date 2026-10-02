@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"strconv"
+	"strings"
 	"time"
 
 	"github.com/joho/godotenv"
@@ -47,7 +48,7 @@ func Load() (*Config, error) {
 		AIMock:      os.Getenv("OPENAI_API_KEY") == "",
 		AdminEmail:  os.Getenv("ADMIN_EMAIL"),
 		IngestKey:   getEnv("INGEST_SECRET", "dev-ingest-secret-change-me"),
-		CORSOrigins: []string{"http://localhost:5173", "http://127.0.0.1:5173"},
+		CORSOrigins: splitOrigins(getEnv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")),
 	}
 
 	if cfg.JWTSecret == "dev-only-change-me" && cfg.AppEnv == "production" {
@@ -70,6 +71,20 @@ func getEnv(key, fallback string) string {
 		return v
 	}
 	return fallback
+}
+
+// splitOrigins parses the comma-separated CORS_ORIGINS allowlist. Use "*" to
+// allow any origin; credentials are still only sent to explicitly listed
+// origins, since browsers reject "*" together with credentials.
+func splitOrigins(raw string) []string {
+	parts := strings.Split(raw, ",")
+	out := make([]string, 0, len(parts))
+	for _, p := range parts {
+		if p = strings.TrimSpace(p); p != "" {
+			out = append(out, p)
+		}
+	}
+	return out
 }
 
 func loadDotEnv() error {

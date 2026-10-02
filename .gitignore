@@ -3,3 +3,9 @@
 node_modules/
 dist/
 *.log
+
+# Textbook fetcher local state and virtualenv — never commit these.
+scripts/textbook_fetcher/venv/
+scripts/textbook_fetcher/__pycache__/
+scripts/textbook_fetcher/.venv/
+scripts/textbook_fetcher/processed_topics.json

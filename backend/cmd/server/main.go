@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -34,6 +35,12 @@ import (
 )
 
 func main() {
+	// `-healthcheck` is used by the container healthcheck. The runtime image
+	// is distroless, so there is no shell or curl available to probe /health.
+	if len(os.Args) > 1 && os.Args[1] == "-healthcheck" {
+		os.Exit(healthcheck())
+	}
+
 	cfg, err := config.Load()
 	if err != nil {
 		log.Fatalf("config: %v", err)
@@ -191,4 +198,25 @@ func ginMode(env string) string {
 		return gin.ReleaseMode
 	}
 	return gin.DebugMode
+}
+
+// healthcheck probes this process's own /health endpoint, which also verifies
+// the database connection. Exits 0 when healthy, 1 otherwise.
+func healthcheck() int {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+	client := &http.Client{Timeout: 5 * time.Second}
+	resp, err := client.Get("http://127.0.0.1:" + port + "/health")
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "healthcheck: %v\n", err)
+		return 1
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode != http.StatusOK {
+		fmt.Fprintf(os.Stderr, "healthcheck: status %d\n", resp.StatusCode)
+		return 1
+	}
+	return 0
 }

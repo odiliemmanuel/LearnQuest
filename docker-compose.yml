@@ -1,14 +1,82 @@
+# Full application stack: postgres + rabbitmq + backend + frontend.
+# The notification service is deployed separately and consumes from RabbitMQ,
+# so it is intentionally NOT part of this file.
+#
+#   cp backend/.env backend/.env      # then fill in DATABASE_URL etc.
+#   docker compose up -d --build
+#
+# The backend runs migrations and seeds on boot, so an empty postgres volume
+# is enough to get a working install.
+
 services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-learnquest}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in backend/.env}
+      POSTGRES_DB: ${POSTGRES_DB:-learnquest}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-learnquest} -d ${POSTGRES_DB:-learnquest}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    # Uncomment for local access from the host (not needed in production).
+    # ports:
+    #   - "5432:5432"
+
   rabbitmq:
     image: rabbitmq:4-management
+    restart: unless-stopped
     environment:
-      RABBITMQ_DEFAULT_USER: learnquest
-      RABBITMQ_DEFAULT_PASS: learnquest-dev-only
-    ports:
-      - "5672:5672"
-      - "15672:15672"
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-learnquest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?set RABBITMQ_PASSWORD in backend/.env}
     volumes:
       - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    # Only the backend container needs AMQP; not published to the host.
+    expose:
+      - "5672"
+
+  backend:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    env_file:
+      - ./backend/.env
+    environment:
+      APP_ENV: ${APP_ENV:-production}
+      PORT: "8080"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-learnquest}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-learnquest}?sslmode=disable
+      RABBITMQ_URL: amqp://${RABBITMQ_USER:-learnquest}:${RABBITMQ_PASSWORD}@rabbitmq:5672/
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/app/server", "-healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 40s
+
+  frontend:
+    build:
+      context: ./frontend
+    restart: unless-stopped
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${WEB_PORT:-8081}:80"
 
 volumes:
+  postgres-data:
   rabbitmq-data:
