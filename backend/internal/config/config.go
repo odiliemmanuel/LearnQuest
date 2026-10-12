@@ -27,6 +27,15 @@ type Config struct {
 	AdminEmail  string
 	IngestKey   string
 	CORSOrigins []string
+
+	// Embedded email consumer (see internal/notifications). Hosts without
+	// background workers run it in-process.
+	RunEmailConsumer bool
+	SMTPHost         string
+	SMTPPort         string
+	SMTPUsername     string
+	SMTPPassword     string
+	EmailFrom        string
 }
 
 func Load() (*Config, error) {
@@ -49,6 +58,13 @@ func Load() (*Config, error) {
 		AdminEmail:  os.Getenv("ADMIN_EMAIL"),
 		IngestKey:   getEnv("INGEST_SECRET", "dev-ingest-secret-change-me"),
 		CORSOrigins: splitOrigins(getEnv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")),
+
+		RunEmailConsumer: getEnv("RUN_EMAIL_CONSUMER", "") == "true",
+		SMTPHost:         os.Getenv("SMTP_HOST"),
+		SMTPPort:         getEnv("SMTP_PORT", "465"),
+		SMTPUsername:     os.Getenv("SMTP_USERNAME"),
+		SMTPPassword:     os.Getenv("SMTP_PASSWORD"),
+		EmailFrom:        os.Getenv("EMAIL_FROM"),
 	}
 
 	if cfg.JWTSecret == "dev-only-change-me" && cfg.AppEnv == "production" {
@@ -59,6 +75,9 @@ func Load() (*Config, error) {
 	}
 	if cfg.RabbitMQURL == "amqp://guest:guest@localhost:5672/" && cfg.AppEnv == "production" {
 		return nil, fmt.Errorf("RABBITMQ_URL must be set in production")
+	}
+	if cfg.RunEmailConsumer && (cfg.SMTPHost == "" || cfg.SMTPUsername == "" || cfg.SMTPPassword == "" || cfg.EmailFrom == "") {
+		return nil, fmt.Errorf("RUN_EMAIL_CONSUMER=true requires SMTP_HOST, SMTP_USERNAME, SMTP_PASSWORD and EMAIL_FROM")
 	}
 	if cfg.OTPSecret == "" {
 		cfg.OTPSecret = cfg.JWTSecret

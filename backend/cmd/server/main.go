@@ -24,6 +24,7 @@ import (
 	"github.com/learnquest/backend/internal/lesson"
 	"github.com/learnquest/backend/internal/library"
 	"github.com/learnquest/backend/internal/middleware"
+	"github.com/learnquest/backend/internal/notifications"
 	"github.com/learnquest/backend/internal/outbox"
 	"github.com/learnquest/backend/internal/question"
 	"github.com/learnquest/backend/internal/quiz"
@@ -170,6 +171,20 @@ func main() {
 	outboxCtx, stopOutbox := context.WithCancel(context.Background())
 	defer stopOutbox()
 	(&outbox.Dispatcher{DB: db, RabbitMQURL: cfg.RabbitMQURL}).Start(outboxCtx)
+
+	// Hosts without background workers (e.g. a free Render web service) run the
+	// email verification consumer inside the API process instead.
+	if cfg.RunEmailConsumer {
+		(&notifications.Consumer{
+			RabbitMQURL:  cfg.RabbitMQURL,
+			SMTPHost:     cfg.SMTPHost,
+			SMTPPort:     cfg.SMTPPort,
+			SMTPUsername: cfg.SMTPUsername,
+			SMTPPassword: cfg.SMTPPassword,
+			EmailFrom:    cfg.EmailFrom,
+		}).Start(outboxCtx)
+		log.Println("learnquest: embedded email consumer enabled")
+	}
 
 	go func() {
 		log.Printf("learnquest: listening on :%s (env=%s ai=%v)", cfg.Port, cfg.AppEnv, aiSvc.Enabled())
