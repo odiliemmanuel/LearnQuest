@@ -44,6 +44,12 @@ interface Envelope {
   error?: string
 }
 
+// Locally this is empty and Vite's dev proxy forwards /api to :8080 (see
+// vite.config.ts). In production the SPA is served from a host that has no API
+// of its own (e.g. Vercel), so the backend origin is injected at build time
+// with VITE_API_BASE, e.g. https://learnquest-api.up.railway.app
+const API_BASE = (import.meta.env.VITE_API_BASE ?? '').replace(/\/+$/, '')
+
 async function request<T>(method: string, path: string, body?: Body): Promise<T> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   const token = getToken()
@@ -51,7 +57,7 @@ async function request<T>(method: string, path: string, body?: Body): Promise<T>
 
   let res: Response
   try {
-    res = await fetch(path, {
+    res = await fetch(`${API_BASE}${path}`, {
       method,
       headers,
       body: body !== undefined ? JSON.stringify(body) : undefined,
