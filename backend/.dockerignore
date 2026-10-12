@@ -1,0 +1,10 @@
+# Build context hygiene. The image build must not pick up host artefacts.
+# Note: internal/seed/content MUST stay in the context — the seed reads it.
+.git
+.gitignore
+.env
+.env.*
+*.log
+tmp/
+Dockerfile
+.dockerignore

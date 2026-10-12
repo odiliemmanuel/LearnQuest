@@ -1,5 +1,7 @@
 server {
-    listen 80;
+    # PaaS platforms (Render, Railway) inject PORT and expect the server to
+    # bind it. Defaults to 80 for local/compose use.
+    listen ${PORT};
     server_name _;
     root /usr/share/nginx/html;
     index index.html;
@@ -7,14 +9,15 @@ server {
     # Admin/seed uploads (avatars, book text) can be large.
     client_max_body_size 25m;
 
-    # The frontend calls the API with relative paths (/api/v1/...), so the
-    # backend is proxied on the same origin. That keeps the browser from
-    # needing CORS at all. If you serve the API from a different host
-    # instead, set CORS_ORIGINS on the backend to this site's origin.
+    # The frontend calls the API with relative paths (/api/v1/...), so nginx
+    # proxies them to the backend. BACKEND_URL is substituted at container
+    # start from the environment, so the same image works for the compose
+    # setup (http://backend:8080) and for a PaaS (https://api.example.com).
     location /api/ {
-        proxy_pass http://backend:8080;
+        proxy_pass ${BACKEND_URL};
+        proxy_ssl_server_name on;
         proxy_http_version 1.1;
-        proxy_set_header Host              $host;
+        proxy_set_header Host              $proxy_host;
         proxy_set_header X-Real-IP         $remote_addr;
         proxy_set_header X-Forwarded-For   $proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto $scheme;

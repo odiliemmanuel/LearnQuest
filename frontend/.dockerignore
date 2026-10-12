@@ -1,0 +1,11 @@
+# Never send host node_modules (114MB, and the wrong platform binaries) into
+# the build context — the Dockerfile installs its own with npm ci.
+node_modules
+dist
+.env
+.env.*
+.git
+.gitignore
+*.log
+Dockerfile
+.dockerignore

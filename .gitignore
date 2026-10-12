@@ -9,3 +9,7 @@ scripts/textbook_fetcher/venv/
 scripts/textbook_fetcher/__pycache__/
 scripts/textbook_fetcher/.venv/
 scripts/textbook_fetcher/processed_topics.json
+
+# Compiled service binaries (images build their own).
+notification-service/notification-service
+backend/server

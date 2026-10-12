@@ -1,0 +1,9 @@
+.git
+.gitignore
+.env
+.env.*
+*.log
+# Prebuilt local binary; the image compiles its own.
+notification-service
+Dockerfile
+.dockerignore
