@@ -1,0 +1,102 @@
+# Production stack for a single always-on host (e.g. an Oracle Cloud Always
+# Free VM). The frontend is NOT here — it is deployed to Vercel and talks to
+# this backend over HTTPS. Caddy sits in front and obtains a Let's Encrypt
+# certificate automatically.
+#
+#   cp .env.example .env      # fill in API_DOMAIN, secrets, SMTP
+#   docker compose -f docker-compose.prod.yml up -d --build
+#
+# Requires inbound TCP 80 and 443 open (both in the cloud provider's security
+# list AND the host firewall) so Caddy can answer the ACME challenge.
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-learnquest}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-learnquest}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-learnquest} -d ${POSTGRES_DB:-learnquest}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  rabbitmq:
+    image: rabbitmq:4-management
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-learnquest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?set RABBITMQ_PASSWORD in .env}
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "ping"]
+      interval: 10s
+      timeout: 10s
+      retries: 10
+    ports:
+      # Management UI bound to loopback only; reach it with an SSH tunnel:
+      #   ssh -L 15672:localhost:15672 ubuntu@<vm>
+      - "127.0.0.1:15672:15672"
+
+  backend:
+    build:
+      context: ./backend
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      APP_ENV: production
+      PORT: "8080"
+      DATABASE_URL: postgresql://${POSTGRES_USER:-learnquest}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-learnquest}?sslmode=disable
+      RABBITMQ_URL: amqp://${RABBITMQ_USER:-learnquest}:${RABBITMQ_PASSWORD}@rabbitmq:5672/
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "/app/server", "-healthcheck"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 90s
+
+  notification:
+    build:
+      context: ./notification-service
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    environment:
+      RABBITMQ_URL: amqp://${RABBITMQ_USER:-learnquest}:${RABBITMQ_PASSWORD}@rabbitmq:5672/
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      API_DOMAIN: ${API_DOMAIN:?set API_DOMAIN in .env}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      backend:
+        condition: service_started
+
+volumes:
+  postgres-data:
+  rabbitmq-data:
+  caddy-data:
+  caddy-config:

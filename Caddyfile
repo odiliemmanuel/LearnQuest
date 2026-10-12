@@ -1,0 +1,13 @@
+# Caddy reverse proxy for the public API.
+#
+# Caddy fetches and renews a Let's Encrypt certificate for API_DOMAIN on first
+# boot. That only works if API_DOMAIN resolves to this server's public IP and
+# ports 80 + 443 are reachable from the internet.
+#
+# No domain of your own yet? Set API_DOMAIN to <VM_PUBLIC_IP>.sslip.io — that
+# hostname resolves to the IP and is on the public suffix list, so Let's
+# Encrypt will issue for it.
+{$API_DOMAIN} {
+	encode gzip
+	reverse_proxy backend:8080
+}
