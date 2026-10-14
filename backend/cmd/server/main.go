@@ -177,13 +177,15 @@ func main() {
 	if cfg.RunEmailConsumer {
 		(&notifications.Consumer{
 			RabbitMQURL:  cfg.RabbitMQURL,
+			EmailFrom:    cfg.EmailFrom,
+			Provider:     cfg.EmailProvider,
+			BrevoAPIKey:  cfg.BrevoAPIKey,
 			SMTPHost:     cfg.SMTPHost,
 			SMTPPort:     cfg.SMTPPort,
 			SMTPUsername: cfg.SMTPUsername,
 			SMTPPassword: cfg.SMTPPassword,
-			EmailFrom:    cfg.EmailFrom,
 		}).Start(outboxCtx)
-		log.Println("learnquest: embedded email consumer enabled")
+		log.Printf("learnquest: embedded email consumer enabled (provider=%s)", cfg.EmailProvider)
 	}
 
 	go func() {

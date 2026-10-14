@@ -31,6 +31,8 @@ type Config struct {
 	// Embedded email consumer (see internal/notifications). Hosts without
 	// background workers run it in-process.
 	RunEmailConsumer bool
+	EmailProvider    string
+	BrevoAPIKey      string
 	SMTPHost         string
 	SMTPPort         string
 	SMTPUsername     string
@@ -60,6 +62,8 @@ func Load() (*Config, error) {
 		CORSOrigins: splitOrigins(getEnv("CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173")),
 
 		RunEmailConsumer: getEnv("RUN_EMAIL_CONSUMER", "") == "true",
+		EmailProvider:    strings.ToLower(getEnv("EMAIL_PROVIDER", "smtp")),
+		BrevoAPIKey:      os.Getenv("BREVO_API_KEY"),
 		SMTPHost:         os.Getenv("SMTP_HOST"),
 		SMTPPort:         getEnv("SMTP_PORT", "465"),
 		SMTPUsername:     os.Getenv("SMTP_USERNAME"),
@@ -76,8 +80,20 @@ func Load() (*Config, error) {
 	if cfg.RabbitMQURL == "amqp://guest:guest@localhost:5672/" && cfg.AppEnv == "production" {
 		return nil, fmt.Errorf("RABBITMQ_URL must be set in production")
 	}
-	if cfg.RunEmailConsumer && (cfg.SMTPHost == "" || cfg.SMTPUsername == "" || cfg.SMTPPassword == "" || cfg.EmailFrom == "") {
-		return nil, fmt.Errorf("RUN_EMAIL_CONSUMER=true requires SMTP_HOST, SMTP_USERNAME, SMTP_PASSWORD and EMAIL_FROM")
+	if cfg.RunEmailConsumer {
+		if cfg.EmailFrom == "" {
+			return nil, fmt.Errorf("RUN_EMAIL_CONSUMER=true requires EMAIL_FROM")
+		}
+		switch cfg.EmailProvider {
+		case "brevo":
+			if cfg.BrevoAPIKey == "" {
+				return nil, fmt.Errorf("EMAIL_PROVIDER=brevo requires BREVO_API_KEY")
+			}
+		default:
+			if cfg.SMTPHost == "" || cfg.SMTPUsername == "" || cfg.SMTPPassword == "" {
+				return nil, fmt.Errorf("RUN_EMAIL_CONSUMER=true requires SMTP_HOST, SMTP_USERNAME, SMTP_PASSWORD, or set EMAIL_PROVIDER=brevo with BREVO_API_KEY")
+			}
+		}
 	}
 	if cfg.OTPSecret == "" {
 		cfg.OTPSecret = cfg.JWTSecret

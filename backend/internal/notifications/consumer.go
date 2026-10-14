@@ -10,14 +10,17 @@
 package notifications
 
 import (
+	"bytes"
 	"context"
 	"crypto/tls"
 	"encoding/json"
 	"errors"
 	"fmt"
 	"html"
+	"io"
 	"log"
 	"net"
+	"net/http"
 	"net/smtp"
 	"strconv"
 	"strings"
@@ -25,6 +28,8 @@ import (
 
 	amqp "github.com/rabbitmq/amqp091-go"
 )
+
+const brevoEndpoint = "https://api.brevo.com/v3/smtp/email"
 
 const (
 	eventExchange = "learnquest.events"
@@ -37,12 +42,29 @@ const (
 )
 
 type Consumer struct {
-	RabbitMQURL  string
+	RabbitMQURL string
+	EmailFrom   string
+
+	// Provider is "smtp" (default) or "brevo". Brevo sends over HTTPS (port
+	// 443), which hosts that block outbound SMTP ports — e.g. Render's free
+	// tier — can still reach.
+	Provider string
+
 	SMTPHost     string
 	SMTPPort     string
 	SMTPUsername string
 	SMTPPassword string
-	EmailFrom    string
+
+	BrevoAPIKey string
+
+	client *http.Client
+}
+
+func (c *Consumer) httpClient() *http.Client {
+	if c.client == nil {
+		c.client = &http.Client{Timeout: 15 * time.Second}
+	}
+	return c.client
 }
 
 type verificationEmail struct {
@@ -60,6 +82,19 @@ type smtpError struct {
 
 func (e *smtpError) Error() string { return fmt.Sprintf("smtp server rejected request: %v", e.Err) }
 func (e *smtpError) Unwrap() error { return e.Err }
+
+// apiError is a non-2xx HTTP response from an email API (Brevo). Retryable
+// distinguishes transient failures (429 / 5xx) from permanent ones (bad key,
+// rejected sender), which go straight to the dead-letter queue.
+type apiError struct {
+	StatusCode int
+	Body       string
+	Retryable  bool
+}
+
+func (e *apiError) Error() string {
+	return fmt.Sprintf("email api status %d: %s", e.StatusCode, e.Body)
+}
 
 // Start runs the consumer in a background goroutine, reconnecting forever until
 // ctx is cancelled. It never returns an error: a dead broker must not take the
@@ -205,7 +240,48 @@ func publishDLQ(ch *amqp.Channel, delivery amqp.Delivery) error {
 }
 
 func (c *Consumer) sendVerificationEmail(ctx context.Context, message verificationEmail) error {
-	return c.sendSMTP(ctx, message.Email, "Verify your LearnQuest email", verificationHTML(message.Name, message.Code))
+	subject := "Verify your LearnQuest email"
+	body := verificationHTML(message.Name, message.Code)
+	if strings.EqualFold(c.Provider, "brevo") {
+		return c.sendBrevo(ctx, message.Email, subject, body)
+	}
+	return c.sendSMTP(ctx, message.Email, subject, body)
+}
+
+// sendBrevo delivers over the Brevo transactional email API (HTTPS), used on
+// hosts that block outbound SMTP ports.
+func (c *Consumer) sendBrevo(ctx context.Context, to, subject, htmlBody string) error {
+	payload, err := json.Marshal(map[string]any{
+		"sender":      map[string]string{"email": c.EmailFrom, "name": "LearnQuest"},
+		"to":          []map[string]string{{"email": to}},
+		"subject":     subject,
+		"htmlContent": htmlBody,
+	})
+	if err != nil {
+		return fmt.Errorf("encode brevo payload: %w", err)
+	}
+	req, err := http.NewRequestWithContext(ctx, http.MethodPost, brevoEndpoint, bytes.NewReader(payload))
+	if err != nil {
+		return fmt.Errorf("build brevo request: %w", err)
+	}
+	req.Header.Set("accept", "application/json")
+	req.Header.Set("content-type", "application/json")
+	req.Header.Set("api-key", c.BrevoAPIKey)
+
+	resp, err := c.httpClient().Do(req)
+	if err != nil {
+		return fmt.Errorf("call brevo api: %w", err)
+	}
+	defer resp.Body.Close()
+	if resp.StatusCode >= 200 && resp.StatusCode < 300 {
+		return nil
+	}
+	detail, _ := io.ReadAll(io.LimitReader(resp.Body, 4096))
+	return &apiError{
+		StatusCode: resp.StatusCode,
+		Body:       strings.TrimSpace(string(detail)),
+		Retryable:  resp.StatusCode == http.StatusTooManyRequests || resp.StatusCode >= 500,
+	}
 }
 
 func (c *Consumer) sendSMTP(ctx context.Context, to, subject, htmlBody string) error {
@@ -299,15 +375,18 @@ func parseSMTPReply(err error) (int, bool) {
 }
 
 func retryable(err error) bool {
+	var apiErr *apiError
+	if errors.As(err, &apiErr) {
+		return apiErr.Retryable
+	}
 	var smtpErr *smtpError
-	if !errors.As(err, &smtpErr) {
-		return true
+	if errors.As(err, &smtpErr) {
+		if smtpErr.Code == 0 {
+			return true
+		}
+		return smtpErr.Code >= 450 && smtpErr.Code < 500
 	}
-	code := smtpErr.Code
-	if code == 0 {
-		return true
-	}
-	return code >= 450 && code < 500
+	return true
 }
 
 func verificationHTML(name, code string) string {
