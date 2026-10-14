@@ -178,6 +178,7 @@ func main() {
 		(&notifications.Consumer{
 			RabbitMQURL:  cfg.RabbitMQURL,
 			EmailFrom:    cfg.EmailFrom,
+			AppURL:       cfg.AppURL,
 			Provider:     cfg.EmailProvider,
 			BrevoAPIKey:  cfg.BrevoAPIKey,
 			SMTPHost:     cfg.SMTPHost,

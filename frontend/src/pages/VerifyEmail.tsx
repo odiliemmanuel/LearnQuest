@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate, useSearchParams } from 'react-router-dom'
 import { api } from '../lib/api'
 import { useAuth } from '../context/AuthContext'
 import { ErrorBanner } from '../components/ui'
@@ -8,10 +8,11 @@ import { AuthShell } from './Login'
 export default function VerifyEmail() {
   const location = useLocation()
   const navigate = useNavigate()
+  const [searchParams] = useSearchParams()
   const { verifyEmail } = useAuth()
-  const initialEmail = (location.state as { email?: string } | null)?.email ?? ''
+  const initialEmail = searchParams.get('email') ?? (location.state as { email?: string } | null)?.email ?? ''
   const [email, setEmail] = useState(initialEmail)
-  const [code, setCode] = useState('')
+  const [code, setCode] = useState((searchParams.get('code') ?? '').replace(/\D/g, '').slice(0, 6))
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
   const [busy, setBusy] = useState(false)

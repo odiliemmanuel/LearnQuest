@@ -33,6 +33,7 @@ type Config struct {
 	RunEmailConsumer bool
 	EmailProvider    string
 	BrevoAPIKey      string
+	AppURL           string
 	SMTPHost         string
 	SMTPPort         string
 	SMTPUsername     string
@@ -64,6 +65,7 @@ func Load() (*Config, error) {
 		RunEmailConsumer: getEnv("RUN_EMAIL_CONSUMER", "") == "true",
 		EmailProvider:    strings.ToLower(getEnv("EMAIL_PROVIDER", "smtp")),
 		BrevoAPIKey:      os.Getenv("BREVO_API_KEY"),
+		AppURL:           strings.TrimRight(getEnv("APP_URL", "http://localhost:5173"), "/"),
 		SMTPHost:         os.Getenv("SMTP_HOST"),
 		SMTPPort:         getEnv("SMTP_PORT", "465"),
 		SMTPUsername:     os.Getenv("SMTP_USERNAME"),

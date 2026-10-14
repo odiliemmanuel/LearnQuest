@@ -22,6 +22,7 @@ import (
 	"net"
 	"net/http"
 	"net/smtp"
+	"net/url"
 	"strconv"
 	"strings"
 	"time"
@@ -44,6 +45,10 @@ const (
 type Consumer struct {
 	RabbitMQURL string
 	EmailFrom   string
+
+	// AppURL is the public frontend origin, used to build the "verify" link in
+	// the email. Empty disables the link.
+	AppURL string
 
 	// Provider is "smtp" (default) or "brevo". Brevo sends over HTTPS (port
 	// 443), which hosts that block outbound SMTP ports — e.g. Render's free
@@ -241,11 +246,24 @@ func publishDLQ(ch *amqp.Channel, delivery amqp.Delivery) error {
 
 func (c *Consumer) sendVerificationEmail(ctx context.Context, message verificationEmail) error {
 	subject := "Verify your LearnQuest email"
-	body := verificationHTML(message.Name, message.Code)
+	body := verificationHTML(message.Name, message.Code, c.verifyURL(message))
 	if strings.EqualFold(c.Provider, "brevo") {
 		return c.sendBrevo(ctx, message.Email, subject, body)
 	}
 	return c.sendSMTP(ctx, message.Email, subject, body)
+}
+
+// verifyURL deep-links to the frontend verification page with the email and
+// code pre-filled, so the recipient can verify with one click. Returns "" when
+// no AppURL is configured.
+func (c *Consumer) verifyURL(message verificationEmail) string {
+	if c.AppURL == "" {
+		return ""
+	}
+	query := url.Values{}
+	query.Set("email", message.Email)
+	query.Set("code", message.Code)
+	return c.AppURL + "/verify-email?" + query.Encode()
 }
 
 // sendBrevo delivers over the Brevo transactional email API (HTTPS), used on
@@ -389,8 +407,15 @@ func retryable(err error) bool {
 	return true
 }
 
-func verificationHTML(name, code string) string {
-	return fmt.Sprintf(`<!doctype html><html><body style="margin:0;background:#f8fafc;font-family:Arial,sans-serif;color:#0f172a"><div style="max-width:520px;margin:40px auto;background:#ffffff;border-radius:18px;padding:36px"><div style="font-weight:700;color:#4f46e5;font-size:18px">LearnQuest</div><h1 style="font-size:24px;margin:24px 0 8px">Verify your email</h1><p>Hello %s, use this code to finish creating your account.</p><div style="margin:28px 0;padding:18px;background:#eef2ff;border-radius:12px;text-align:center;font-size:30px;letter-spacing:8px;font-weight:700;color:#3730a3">%s</div><p style="color:#64748b;font-size:14px">This code expires in 10 minutes. If you did not create a LearnQuest account, you can ignore this email.</p></div></body></html>`, html.EscapeString(name), code)
+func verificationHTML(name, code, verifyURL string) string {
+	button := ""
+	if verifyURL != "" {
+		button = fmt.Sprintf(
+			`<a href="%s" style="display:block;margin:24px 0;padding:14px;background:#4f46e5;border-radius:12px;text-align:center;color:#ffffff;font-weight:700;text-decoration:none">Verify my email</a><p style="color:#94a3b8;font-size:12px;word-break:break-all">Or paste this link into your browser:<br>%s</p>`,
+			html.EscapeString(verifyURL), html.EscapeString(verifyURL),
+		)
+	}
+	return fmt.Sprintf(`<!doctype html><html><body style="margin:0;background:#f8fafc;font-family:Arial,sans-serif;color:#0f172a"><div style="max-width:520px;margin:40px auto;background:#ffffff;border-radius:18px;padding:36px"><div style="font-weight:700;color:#4f46e5;font-size:18px">LearnQuest</div><h1 style="font-size:24px;margin:24px 0 8px">Verify your email</h1><p>Hello %s, use this code to finish creating your account.</p><div style="margin:28px 0;padding:18px;background:#eef2ff;border-radius:12px;text-align:center;font-size:30px;letter-spacing:8px;font-weight:700;color:#3730a3">%s</div>%s<p style="color:#64748b;font-size:14px">This code expires in 10 minutes. If you did not create a LearnQuest account, you can ignore this email.</p></div></body></html>`, html.EscapeString(name), code, button)
 }
 
 func retryCount(headers amqp.Table) int {
