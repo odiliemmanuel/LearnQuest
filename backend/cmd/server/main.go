@@ -187,7 +187,7 @@ func main() {
 	}
 
 	go func() {
-		log.Printf("learnquest: listening on :%s (env=%s ai=%v)", cfg.Port, cfg.AppEnv, aiSvc.Enabled())
+		log.Printf("learnquest: listening on :%s (env=%s ai=%v cors=%v)", cfg.Port, cfg.AppEnv, aiSvc.Enabled(), cfg.CORSOrigins)
 		if err := srv.ListenAndServe(); err != nil && !errors.Is(err, http.ErrServerClosed) {
 			log.Fatalf("server: %v", err)
 		}
