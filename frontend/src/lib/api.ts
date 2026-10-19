@@ -48,7 +48,7 @@ interface Envelope {
 // vite.config.ts). In production the SPA is served from a host that has no API
 // of its own (e.g. Vercel), so the backend origin is injected at build time
 // with VITE_API_BASE, e.g. https://learnquest-api.up.railway.app
-const API_BASE = (import.meta.env.VITE_API_BASE ?? '').replace(/\/+$/, '')
+export const API_BASE = (import.meta.env.VITE_API_BASE ?? '').replace(/\/+$/, '')
 
 async function request<T>(method: string, path: string, body?: Body): Promise<T> {
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
